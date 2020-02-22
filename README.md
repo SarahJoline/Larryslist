@@ -2,8 +2,8 @@
 
 Team:
 
-Larry Nan
-Huan Ngyuen
-Herman Liu
-Mohamed Htout
-Sarah Naas
+- Larry Nan
+- Huan Ngyuen
+- Herman Liu
+- Mohamed Htout
+- Sarah Naas
