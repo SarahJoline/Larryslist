@@ -1,0 +1,21 @@
+{
+  "name": "Larryslist",
+  "version": "1.0.0",
+  "description": "Team:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SarahJoline/Larryslist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SarahJoline/Larryslist/issues"
+  },
+  "homepage": "https://github.com/SarahJoline/Larryslist#readme"
+}
