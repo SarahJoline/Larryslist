@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "repository": {
@@ -17,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/SarahJoline/Larryslist/issues"
   },
-  "homepage": "https://github.com/SarahJoline/Larryslist#readme"
+  "homepage": "https://github.com/SarahJoline/Larryslist#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-cli": "0.0.1",
+    "mongoose": "^5.9.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  }
 }
