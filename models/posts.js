@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Comment = require("./comments");
 
 const Schema = mongoose.Schema;
 
