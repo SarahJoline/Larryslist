@@ -10,11 +10,11 @@ import React, { Component } from 'react'
               redirectTo: null
           }
      }
-     handleChange =(e)=>{
-         this.setState({
-             [event.target.name]:event.target.value
-         });
-     }
+    //  handleChange =(e)=>{
+    //      this.setState({
+    //          [event.target.name]:event.target.value
+    //      });
+    //  }
 
 
 
