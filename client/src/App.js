@@ -1,30 +1,35 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import React, { useEffect } from "react";
-import Search from "./pages/Search/Search";
-import Category from "./pages/Category/Category";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useEffect, Component } from "react";
+import Login from "./pages/Login/Login";
 import Favorite from "./pages/Favorite/Favorite";
 import About from "./pages/About/About";
 import Navbar from "./Components/Navbar/Navbar";
-import  Footer from "./Components/Footer/Footer";
-import  Wrapper from "./Components/Wrapper/Wrapper";
+import Footer from "./Components/Footer/Footer";
+import ItemList from "./Components/ItemList/ItemList";
 import "./App.css";
 
 function App() {
   return (
-   <Router>
-     <div>
-       <Navbar/>
-       <Wrapper>
-       <Route exact path="/" component={About}></Route> 
-          <Route exact path="/about" component={About}></Route>
-          <Route exact path="/search" component={Search}></Route>
-          <Route exact path="/category" component={Category}></Route>
-          <Route exact path="/favorite" component={Favorite}></Route>
-          <Route  component={Four04}></Route>
-       </Wrapper>  
-       <Footer/>
-     </div>
-   </Router>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <About />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/favorite">
+          <Favorite />
+        </Route>
+        {/* <Route component={Four04}></Route> */}
+      </Switch>
+      <ItemList />
+      <Footer />
+    </Router>
   );
 }
 
