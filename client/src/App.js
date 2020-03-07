@@ -4,7 +4,6 @@ import Favorite from "./pages/Favorite/Favorite";
 import About from "./pages/Home/Home";
 import Navbar from "./Components/Navbar/Navbar";
 import  Footer from "./Components/Footer/Footer";
-import  Wrapper from "./Components/Wrapper/Wrapper";
 import "./App.css";
 import Catagory from "./Components/category/category"
 
