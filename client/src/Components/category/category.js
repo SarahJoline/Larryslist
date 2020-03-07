@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-
-class Favorite extends Component {
+ class category extends Component {
     render() {
         return (
             <div>
-                Favorite
+                Catagory
             </div>
         )
     }
 }
 
-export default Favorite
+export default category

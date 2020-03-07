@@ -1,13 +1,15 @@
+
+// import {Link} from "react-router-dom"
 import React, { Component } from 'react'
 
-class Favorite extends Component {
+ class About extends Component {
     render() {
         return (
             <div>
-                Favorite
+              Home  
             </div>
         )
     }
 }
 
-export default Favorite
+export default About
