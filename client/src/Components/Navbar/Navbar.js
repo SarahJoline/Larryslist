@@ -11,13 +11,14 @@ import React, { Component } from 'react'
                    <Link to='/'>Home</Link>
                </button>
                <button>
-                   <Link to='/search'>Search</Link>
+
+                   <Link to='/Search'>Search</Link>
                </button>
                <button>
-                   <Link to='/login'>Login</Link>
+                   <Link to='/Favorite'>Favorite</Link>
                </button>
                <button>
-                   <Link to='/favorite'>Favorite</Link>
+                   <Link to='/Login'>Login</Link>
                </button>
             </div>
         )

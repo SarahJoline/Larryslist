@@ -13,7 +13,7 @@ mongoose.connect("mongodb://localhost/larryslist_db", {
   useFindAndModify: false
 });
 
-if (process.env.MONGO_URI === "production") {
+if (process.env.MONGODB_URI === "production") {
   app.use(express.static("client/build"));
 }
 
