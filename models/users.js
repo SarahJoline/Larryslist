@@ -18,12 +18,20 @@ let UserSchema = new Schema({
     // required: true
   },
   email: {
-    type: String
-    // required: true
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    validate: value => {
+    if (!validator.isEmail(value)) {
+        throw new Error({error: 'Invalid Email address'})
+        }
+    }
   },
   passWord: {
-    type: String
-    // required: true
+    type: String,
+    required: true,
+    minLength: 6
   },
   image: {
     type: String
@@ -42,7 +50,14 @@ let UserSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Comment"
     }
-  ]
+  ],
+  tokens: [{
+  token:
+    {
+      type: String,
+      required: true
+    }
+  }]
 });
 
 const User = mongoose.model("User", UserSchema);
