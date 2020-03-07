@@ -2,7 +2,7 @@ import React from "react"
 import {Link} from "react-router-dom"
 import "./Navbar.css "
 
-const Navbar = props =>{
+const Navbar = props => {
     <nav className="navbar navbar-default">
         <div className="container-fluid">
             <div className="navbar-header">
@@ -18,13 +18,13 @@ const Navbar = props =>{
                     :""
                     }
                 >
-                    <Link to="/">About</Link>
+                    <Link to="/">Home</Link>
                 </li>
-                <li 
+                {/* <li 
                      className={window.location.pathname === "/category" ? "active" : ""}
                 >
                      <Link to="/category">Category</Link>
-                     </li>
+                     </li> */}
                 <li 
                      className={window.location.pathname === "/search" ? "active" : ""}
                 >
