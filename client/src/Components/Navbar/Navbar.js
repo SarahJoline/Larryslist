@@ -11,6 +11,7 @@ import React, { Component } from 'react'
                    <Link to='/'>Home</Link>
                </button>
                <button>
+
                    <Link to='/Search'>Search</Link>
                </button>
                <button>

@@ -3,7 +3,9 @@ import React, { Component } from 'react'
     render() {
         return (
             <div>
-                Catagory
+                <button>Hosing</button>
+                <button>Jobs</button>
+                <button>Car</button>
             </div>
         )
     }
