@@ -8,7 +8,7 @@ let PostSchema = new Schema({
     type: String,
     required: true
   },
-  discreption: {
+  description: {
     type: String
     //    required: true
   },
