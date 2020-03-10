@@ -6,35 +6,34 @@ class SignUp extends Component {
   state = {
     user: "",
     password: "",
-    babyname: "",
-    babyimg: ""
+  
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
+//   handleFormSubmit = event => {
+//     event.preventDefault();
 
-    API.register({
-      user: this.state.user,
-      password: this.state.password,
-      babyname: this.state.babyname,
-      babyimg: this.state.babyimg
-    }).then(res =>
-      this.setState({
-        user: "",
-        password: "",
-        babyname: "",
-        babyimg: ""
-      })
-    );
-    window.location.assign("/");
-  };
+//     API.register({
+//       user: this.state.user,
+//       password: this.state.password,
+//       : this.state."",
+//       : this.state.""
+//     }).then(res =>
+//       this.setState({
+//         user: "",
+//         password: "",
+//         : "",
+//         : ""
+//       })
+//     );
+//     window.location.assign("/");
+//   };
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
+//   handleInputChange = event => {
+//     const { name, value } = event.target;
+//     this.setState({
+//       [name]: value
+//     });
+//   };
 
   render() {
     return (
