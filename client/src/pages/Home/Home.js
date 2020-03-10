@@ -6,8 +6,14 @@ import React, { Component } from 'react'
     render() {
         return (
             <div>
-              Home  
+                <button className="hosing">Hosing</button>
+                <button className="jobs">Jobs</button>
+                <button className="car">Car</button>  
+                <input type="text" placeholder="Search LarryList">
+               </input>
             </div>
+            
+            
         )
     }
 }

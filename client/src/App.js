@@ -8,6 +8,7 @@ import "./App.css";
 import Login from "./Components/login/login"
 import Header from "./Components/Header/Header"
 import SignUp from"./pages/signUp/signUp"
+//import Category from"./Components/category/category"
 
 function App() {
   return (

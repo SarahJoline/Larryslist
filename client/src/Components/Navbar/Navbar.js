@@ -10,10 +10,12 @@ import React, { Component } from 'react'
                <button>
                    <Link to='/'>Home</Link>
                </button>
-               <button>
+               {/* <input type="text" placeholder="Search LarryList">
+               </input> */}
+               {/* <button>
 
                    <Link to='/Search'>Search</Link>
-               </button>
+               </button> */}
                <button>
                    <Link to='/Favorite'>Favorite</Link>
                </button>
@@ -23,8 +25,10 @@ import React, { Component } from 'react'
                <button>
                    <Link to='/SignUp'>SignUp</Link>
                </button>
+           
                </div>
             </div>
+           
         )
     }
 }
