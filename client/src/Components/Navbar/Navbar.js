@@ -5,9 +5,9 @@ import React, { Component } from 'react'
 
     render() {
         return (
-            <div>
+            <div className="Wrapper">
+                <div className="navbar navbar-expand-lg navbar-light bg-light">
                <button>
-                   
                    <Link to='/'>Home</Link>
                </button>
                <button>
@@ -20,6 +20,7 @@ import React, { Component } from 'react'
                <button>
                    <Link to='/Login'>Login</Link>
                </button>
+               </div>
             </div>
         )
     }
