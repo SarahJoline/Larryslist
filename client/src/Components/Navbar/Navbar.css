@@ -1,0 +1,19 @@
+
+button {
+    margin: 0 30px;
+    color: #2C2827;
+}
+
+.navbar {
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+@media (max-width: 575.98px) {
+    a {
+        margin: 0 5px;
+    }
+}
+button:hover {
+    color: #71B7AA;
+}
