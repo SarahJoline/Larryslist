@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 let CommentSchema = new Schema({
-  body: {
-    type: String,
-    required: true
-  },
+  // body: {
+  //   type: String,
+  //   required: true
+  // },
   userId: {
     type: String
     // required: true
