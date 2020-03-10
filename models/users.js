@@ -5,6 +5,9 @@ const Post = require("./posts");
 const Schema = mongoose.Schema;
 
 let UserSchema = new Schema({
+  id:{
+    type:String,
+  },
   firstName: {
     type: String,
     required: true
@@ -39,12 +42,12 @@ let UserSchema = new Schema({
   articlePosted: {
     type: String
   },
-  post: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Post"
-    }
-  ],
+  // post: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Post"
+  //   }
+  // ],
   comments: [
     {
       type: Schema.Types.ObjectId,
