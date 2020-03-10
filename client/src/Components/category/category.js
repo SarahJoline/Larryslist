@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
- class category extends Component {
+ class Category extends Component {
     render() {
         return (
             <div>
-                <button>Hosing</button>
-                <button>Jobs</button>
-                <button>Car</button>
+            
             </div>
         )
     }
 }
 
-export default category
+export default Category
