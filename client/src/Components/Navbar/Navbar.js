@@ -20,6 +20,9 @@ import React, { Component } from 'react'
                <button>
                    <Link to='/Login'>Login</Link>
                </button>
+               <button>
+                   <Link to='/SignUp'>SignUp</Link>
+               </button>
                </div>
             </div>
         )
