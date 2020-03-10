@@ -5,9 +5,12 @@ const Post = require("./posts");
 const Schema = mongoose.Schema;
 
 let UserSchema = new Schema({
+  id:{
+    type:String,
+  },
   firstName: {
     type: String,
-    required: true
+    // required: true
   },
   lastName: {
     type: String
@@ -22,13 +25,13 @@ let UserSchema = new Schema({
     required: true,
     unique: true,
     lowercase: true,
-    validate: value => {
-    if (!validator.isEmail(value)) {
-        throw new Error({error: 'Invalid Email address'})
-        }
-    }
+    // validate: value => {
+    // if (!validator.isEmail(value)) {
+    //     throw new Error({error: 'Invalid Email address'})
+    //     }
+    // }
   },
-  passWord: {
+  password: {
     type: String,
     required: true,
     minLength: 6
@@ -39,12 +42,12 @@ let UserSchema = new Schema({
   articlePosted: {
     type: String
   },
-  post: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Post"
-    }
-  ],
+  // post: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Post"
+  //   }
+  // ],
   comments: [
     {
       type: Schema.Types.ObjectId,
