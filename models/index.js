@@ -1,3 +1,3 @@
 module.exports = {
-  Post: require("../models/Posts")
+  User: require("../models/users")
 };
