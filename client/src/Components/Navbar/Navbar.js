@@ -1,36 +1,34 @@
-import {Link} from 'react-router-dom'
-import "./Navbar.css"
-import React, { Component } from 'react'
- class navbar extends Component {
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+import React, { Component } from "react";
+class navbar extends Component {
+  render() {
+    return (
+      <div className="Wrapper">
+        <div className="navbar">
+          <Link to="/" className="page-buttons">
+            Home
+          </Link>
 
-    render() {
-        return (
-            <div className="Wrapper">
-                <div className="navbar navbar-expand-lg navbar-light bg-light">
-               <button>
-                   <Link to='/'>Home</Link>
-               </button>
-               {/* <input type="text" placeholder="Search LarryList">
-               </input> */}
-               {/* <button>
+          <Link to="/Search" className="page-buttons">
+            Search
+          </Link>
 
-                   <Link to='/Search'>Search</Link>
-               </button> */}
-               <button>
-                   <Link to='/Favorite'>Favorite</Link>
-               </button>
-               <button>
-                   <Link to='/Login'>Login</Link>
-               </button>
-               <button>
-                   <Link to='/SignUp'>SignUp</Link>
-               </button>
-           
-               </div>
-            </div>
-           
-        )
-    }
+          <Link to="/Favorite" className="page-buttons">
+            Favorite
+          </Link>
+
+          <Link to="/Login" className="page-buttons">
+            Login
+          </Link>
+
+          <Link to="/SignUp" className="page-buttons">
+            SignUp
+          </Link>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default navbar
+export default navbar;
