@@ -21,7 +21,6 @@ function App() {
 
        <Route exact path="/" component={Home}></Route> 
           <Route exact path="/home" component={Home}></Route>
-          {/* <Route exact path="/search" component={Search}></Route>  */}
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/favorite" component={Favorite}></Route>
           <Route exact path="/signUp" component={SignUp}></Route> 

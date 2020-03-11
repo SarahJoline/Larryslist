@@ -1,9 +1,9 @@
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import "./Navbar.css"
-import React, { Component } from 'react'
- class navbar extends Component {
-
-    render() {
+import React from 'react'
+function Navbar(){
+        let path=useLocation().pathname
+        console.log("path", path)
         return (
             <div className="Wrapper">
                 <div className="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,20 +17,19 @@ import React, { Component } from 'react'
                    <Link to='/Search'>Search</Link>
                </button> */}
                <button>
-                   <Link to='/Favorite'>Favorite</Link>
+                   <Link to='/favorite'>Favorite</Link>
                </button>
-               <button>
-                   <Link to='/Login'>Login</Link>
-               </button>
-               <button>
-                   <Link to='/SignUp'>SignUp</Link>
-               </button>
+              {path=="/login"? "" :<button>
+                   <Link to='/login'>Login</Link>
+               </button>}
+               {path=="/signUp"?"":<button>
+                   <Link to='/signUp'>SignUp</Link>
+               </button>}
            
                </div>
             </div>
            
         )
-    }
 }
 
-export default navbar
+export default Navbar
