@@ -1,12 +1,8 @@
-import React, { Component } from 'react'
- class Category extends Component {
-    render() {
-        return (
-            <div>
-            
-            </div>
-        )
-    }
+import React, { Component } from "react";
+class Category extends Component {
+  render() {
+    return <div></div>;
+  }
 }
 
-export default Category
+export default Category;

@@ -63,7 +63,7 @@ app.post("/register", async (req, res) => {
   const Email = req.body.email;
   const password = req.body.password;
   // hash the password
-  const hashedPassword = await hash(password, 10);
+  // const hashedPassword = await hash(password, 10);
 
   db.User.find().then(user => {
     // check if user exist:
@@ -73,7 +73,7 @@ app.post("/register", async (req, res) => {
       // if not create new user:
       db.User.create({
         email: req.body.email,
-        password: hashedPassword
+        password
       })
         .then(user => {
           res.send({ message: "User Created" });
@@ -120,7 +120,7 @@ app.post("/login", async (req, res) => {
         user.refreshtoken = refreshtoken;
         //Send token. Refreshtoken as a cookie and accesstoken as a regular response
         sendRefreshToken(res, refreshtoken);
-        sendAccessToken(res, req, accesstoken);
+        sendAccessToken(res, req, accesstoken, user, refreshtoken);
       }
     })
     .catch(err => {
@@ -128,6 +128,30 @@ app.post("/login", async (req, res) => {
         error: `${err.message}`
       });
     });
+});
+
+// log out a signed user
+app.post("/logout", (_req, res) => {
+  res.clearCookie("refreshtoken", { path: "/refresh_token" });
+  return res.send({
+    message: "Logged out"
+  });
+});
+
+// redirect to Home page after login
+app.post("/home", async (req, res) => {
+  try {
+    const userId = isAuth(req);
+    if (userId !== null) {
+      res.send({
+        data: "This is Home Page"
+      });
+    }
+  } catch (err) {
+    res.send({
+      error: `${err.message}`
+    });
+  }
 });
 
 app.listen(PORT, () => {
