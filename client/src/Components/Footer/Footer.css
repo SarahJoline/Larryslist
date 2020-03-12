@@ -3,6 +3,6 @@ footer{
     width: 100%;
     padding: 20px 0px 5px 20px;
     clear: both;
-    position: relative;
+    position: fixed;
     bottom: 0;
 }

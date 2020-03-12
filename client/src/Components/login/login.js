@@ -21,32 +21,32 @@ import "./login.css"
             <div>
                  <main>
         <h2>Form Inputs</h2>
-        <form class="form">
-            <div class="group">
+        <form className="form">
+            <div className="group">
                 <input 
                     type="text" 
                     name="text" 
-                    class="text input"
-                    autocomplete="off"
+                    className="text input"
+                    autoComplete="off"
                     placeholder="Name/Email"
-                    autofocus
+                    autoFocus
                 />
-                <label for="text" class="border">
-                    <span class="text">
+                <label htmlFor="text" className="border">
+                    <span className="text">
                     </span>
                 </label>
             </div>
-            <div class="group">
+            <div className="group">
                 <input 
                     type="text" 
                     name="password" 
-                    class="password input"
-                    autocomplete="off"
+                    className="password input"
+                    autoComplete="off"
                     placeholder="password"
-                    autofocus
+                    autoFocus
                 />
-                <label for="password" class="border">
-                    <span class="password">
+                <label htmlFor="password" className="border">
+                    <span className="password">
                     </span>
                 </label>
             </div>
