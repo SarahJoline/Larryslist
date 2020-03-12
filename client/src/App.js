@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Favorite from "./pages/Favorite/Favorite";
 import Home from "./pages/Home/Home";
+
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
@@ -14,6 +15,8 @@ import { navigate } from "@reach/router";
 
 export const UserContext = React.createContext([]);
 console.log(UserContext);
+
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -104,6 +107,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+
   );
 }
 

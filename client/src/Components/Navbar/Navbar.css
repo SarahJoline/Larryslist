@@ -1,19 +1,23 @@
+.container {
+  display: flex;
+}
 
-button {
-    margin: 0 30px;
-    color: #2C2827;
+.Wrapper {
+  width: 100%;
 }
 
 .navbar {
-    border-radius: 5px;
-    margin: 20px 0;
+  border-radius: 5px;
+  margin: 20px 0;
+  justify-content: center;
+  width: 100%;
 }
 
-@media (max-width: 575.98px) {
-    a {
-        margin: 0 5px;
-    }
+.page-buttons {
+  width: 100%;
+  color: white;
 }
+
 button:hover {
-    color: #71B7AA;
+  color: #71b7aa;
 }

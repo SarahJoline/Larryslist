@@ -26,6 +26,7 @@
   "homepage": "https://github.com/SarahJoline/Larryslist#readme",
   "dependencies": {
     "@reach/router": "^1.3.3",
+    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.1.0",
     "cookie-parser": "^1.4.4",
