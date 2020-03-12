@@ -8,7 +8,7 @@ import "./App.css";
 import Login from "./Components/login/login"
 import Header from "./Components/Header/Header"
 import SignUp from"./pages/signUp/signUp"
-//import Category from"./Components/category/category"
+import Category from"./Components/category/category"
 
 function App() {
   return (
@@ -17,10 +17,11 @@ function App() {
        <Header/>
       <Navbar/>
        <Switch> 
-        {/* <Category/> */}
+        <Category/>
 
        <Route exact path="/" component={Home}></Route> 
           <Route exact path="/home" component={Home}></Route>
+          {/* <Route exact path="/search" component={Search}></Route>  */}
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/favorite" component={Favorite}></Route>
           <Route exact path="/signUp" component={SignUp}></Route> 
