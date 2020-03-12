@@ -5,11 +5,11 @@ const Post = require("./posts");
 const Schema = mongoose.Schema;
 
 let UserSchema = new Schema({
-  id:{
-    type:String,
+  id: {
+    type: String
   },
   firstName: {
-    type: String,
+    type: String
     // required: true
   },
   lastName: {
@@ -24,7 +24,7 @@ let UserSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    lowercase: true,
+    lowercase: true
     // validate: value => {
     // if (!validator.isEmail(value)) {
     //     throw new Error({error: 'Invalid Email address'})
@@ -39,9 +39,12 @@ let UserSchema = new Schema({
   image: {
     type: String
   },
-  articlePosted: {
-    type: String
-  },
+  Post: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Post"
+    }
+  ],
   // post: [
   //   {
   //     type: Schema.Types.ObjectId,
@@ -54,13 +57,14 @@ let UserSchema = new Schema({
       ref: "Comment"
     }
   ],
-  tokens: [{
-  token:
+  tokens: [
     {
-      type: String,
-      required: true
+      token: {
+        type: String,
+        required: true
+      }
     }
-  }]
+  ]
 });
 
 const User = mongoose.model("User", UserSchema);
