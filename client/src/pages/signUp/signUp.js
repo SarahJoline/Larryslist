@@ -21,8 +21,6 @@ class SignUp extends Component {
 //       this.setState({
 //         user: "",
 //         password: "",
-//         : "",
-//         : ""
 //       })
 //     );
 //     window.location.assign("/");

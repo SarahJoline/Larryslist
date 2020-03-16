@@ -6,11 +6,11 @@ import "./Footer.css"
         return (
             <div>
                <footer>Copy right
-               Larry Nan 
-               Huan Ngyuen 
-               Herman Liu 
-               Mohamed Htout 
-               Sarah Naas
+               <a href="https://github.com/LarryYuki"> Larry Nan </a>
+               <a href="https://github.com/huancal"> Huan Ngyuen </a>
+               <a href="https://github.com/hermsicle">Herman Liu</a>
+               <a href="https://github.com/hatout1"> Mohamed Htout </a>
+               <a href="https://github.com/SarahJoline"> Sarah Naas</a>
                    </footer> 
             </div>
         )
