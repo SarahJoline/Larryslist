@@ -7,7 +7,7 @@ import Home from "./pages/Home/Home";
 // import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
-import Login from "./Components/Login/Login";
+import Login from "./Components/Login/Login"
 import Header from "./Components/Header/Header";
 import SignUp from "./pages/signUp/signUp";
 // import Category from "./Components/Category/Category";
