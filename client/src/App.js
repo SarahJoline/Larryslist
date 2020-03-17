@@ -16,8 +16,6 @@ import { navigate } from "@reach/router";
 export const UserContext = React.createContext([]);
 console.log(UserContext);
 
-
-
 function App() {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
@@ -83,16 +81,30 @@ function App() {
   }, []);
 
   console.log("User: " + user);
+
+  const addNewResult = queryResult => {
+    if (queryResult === null) {
+      this.setState({ data: [] });
+      return;
+    }
+    const searchResult = this.normalizeData(queryResult);
+    this.setState({ data: searchResult });
+  };
+
   return (
     <Router>
       <div>
         <Header />
-        <Navbar />
         <Switch>
           {/* <Category/> */}
 
           <Route exact path="/" component={Home}></Route>
-          <Route exact path="/home" component={Home}></Route>
+          <Route
+            exact
+            path="/home"
+            component={Home}
+            addNewResult={addNewResult}
+          ></Route>
           {/* <Route exact path="/search" component={Search}></Route>  */}
           <Route
             exact
@@ -107,7 +119,6 @@ function App() {
         <Footer />
       </div>
     </Router>
-
   );
 }
 

@@ -1,21 +1,16 @@
-
 // import {Link} from "react-router-dom"
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import SearchForm from "./../../Components/SearchForm/SearchForm";
+import { addNewResult } from "../../App";
 
- class About extends Component {
-    render() {
-        return (
-            <div>
-                <button className="hosing">Hosing</button>
-                <button className="jobs">Jobs</button>
-                <button className="car">Car</button>  
-                <input type="text" placeholder="Search LarryList">
-               </input>
-            </div>
-            
-            
-        )
-    }
+class About extends Component {
+  render(props) {
+    return (
+      <div>
+        <SearchForm addNewResult={addNewResult} />
+      </div>
+    );
+  }
 }
 
-export default About
+export default About;
