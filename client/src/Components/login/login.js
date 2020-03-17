@@ -1,12 +1,8 @@
 
 import React, { useState, useContext, useEffect } from "react"
 // import { navigate } from "@reach/router";
-<<<<<<< HEAD
 import { UserContext } from "../../App";
 import "./Login.css"
-=======
- import { UserContext } from "../../App";
->>>>>>> origin
 
 const Login = props => {
   const user = useContext(UserContext);
