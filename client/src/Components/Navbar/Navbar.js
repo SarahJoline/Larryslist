@@ -1,3 +1,4 @@
+
 import {Link, useLocation} from 'react-router-dom'
 import "./Navbar.css"
 import React from 'react'
@@ -11,7 +12,9 @@ function Navbar(){
                    <Link to='/'>Home</Link>
                </button>
                {/* <input type="text" placeholder="Search LarryList">
+
                </input> */}
+
                {/* <button></button>
                                   <Link to='/Search'>Search</Link>
                </button> */}
@@ -33,3 +36,4 @@ function Navbar(){
 
 
 export default Navbar;
+

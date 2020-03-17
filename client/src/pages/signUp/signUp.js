@@ -1,90 +1,83 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "./signUp.css";
 import API from "../../Components/utility/API";
 
-class SignUp extends Component {
-  state = {
-    user: "",
-    password: "",
-  
+import { navigate } from "@reach/router";
+
+const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const result = await (
+      await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      })
+    ).json();
+    if (!result.error) {
+      console.log(result.message);
+      navigate("/");
+    } else {
+      console.log(result.error);
+    }
   };
 
-//   handleFormSubmit = event => {
-//     event.preventDefault();
 
-//     API.register({
-//       user: this.state.user,
-//       password: this.state.password,
-//       : this.state."",
-//       : this.state.""
-//     }).then(res =>
-//       this.setState({
-//         user: "",
-//         password: "",
-//       })
-//     );
-//     window.location.assign("/");
-//   };
+  const handleChange = e => {
+    if (e.currentTarget.name === "email") {
+      setEmail(e.currentTarget.value);
+    } else {
+      setPassword(e.currentTarget.value);
+    }
+  };
 
-//   handleInputChange = event => {
-//     const { name, value } = event.target;
-//     this.setState({
-//       [name]: value
-//     });
-//   };
-
-  render() {
-    return (
-      <div className="container">
-        <h2>SignUp</h2>
-        <form>
-          <div className="form-group">
-            <label>Email or User Name</label>
+  return (
+    <div className="container">
+      <h2>SignUp</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <div>
+            <label>Email</label>
+          </div>
+          <div>
             <input
-              type="string"
-              className="form-control"
-              id="newEmail"
-              placeholder="Enter email or user name"
-              name="user"
-              onChange={this.handleInputChange}
+              value={email}
+              onChange={handleChange}
+              type="text"
+              name="email"
+              // placeholder="Email"
+              autoComplete="email"
             />
           </div>
-
-          <div className="form-group">
+          <div>
             <label>Password</label>
+          </div>
+          <div>
             <input
+              value={password}
+              onChange={handleChange}
               type="password"
-              className="form-control"
-              id="newPassword"
-              placeholder="*******"
               name="password"
-              onChange={this.handleInputChange}
+              autoComplete="current-password"
+              // placeholder="Password"
             />
           </div>
-
-          <div className="form-group">
-            <label>Confirm Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="confirmPassword"
-              placeholder="*******"
-              name="password"
-              onChange={this.handleInputChange}
-            />
+          <div>
+            <button type="submit">Register</button>
           </div>
-
-          <button
-            type="submit"
-            className="btn btn-info"
-            onClick={this.handleFormSubmit}
-          >
-            SignUp
-          </button>
-        </form>
-      </div>
-    );
-  }
-}
+        </div>
+      </form>
+    </div>
+  );
+};
 
 export default SignUp;
