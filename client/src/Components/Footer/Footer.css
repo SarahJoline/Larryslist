@@ -1,8 +1,27 @@
 footer{
-    background-color:white;
+    background-color:rgba(142, 211, 194, 0.37);
     width: 100%;
     padding: 20px 0px 5px 20px;
     clear: both;
     position: fixed;
     bottom: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    /* max-width: 960px; */
+    height: 15%;
+    /* margin: 0 auto; */
+}
+a {
+    margin: 0 20px;
+    color: #2C2827;
+}
+
+a:hover {
+    color: #71B7AA;
+}
+@media (max-width: 575.98px) {
+    a {
+        margin: 0 5px;
+    }
 }

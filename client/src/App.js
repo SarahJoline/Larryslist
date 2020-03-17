@@ -3,13 +3,13 @@ import React, { useEffect, useState } from "react";
 import Favorite from "./pages/Favorite/Favorite";
 import Home from "./pages/Home/Home";
 
-import Navbar from "./Components/Navbar/Navbar";
+// import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
 import Login from "./Components/Login/Login";
 import Header from "./Components/Header/Header";
 import SignUp from "./pages/signUp/signUp";
-import Category from "./Components/Category/Category";
+// import Category from "./Components/Category/Category";
 
 import { navigate } from "@reach/router";
 
@@ -87,7 +87,7 @@ function App() {
     <Router>
       <div>
         <Header />
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           {/* <Category/> */}
 
