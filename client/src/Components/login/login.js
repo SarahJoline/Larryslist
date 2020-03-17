@@ -1,6 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+
+import React, { useState, useContext, useEffect } from "react"
 // import { navigate } from "@reach/router";
-import { UserContext } from "../../App";
+ import { UserContext } from "../../App";
 
 const Login = props => {
   const user = useContext(UserContext);
@@ -102,6 +103,7 @@ const Login = props => {
       //     </main>
       //             </div>
       //         )
+
     }
   };
 

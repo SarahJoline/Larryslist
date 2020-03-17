@@ -4,18 +4,14 @@ import Favorite from "./pages/Favorite/Favorite";
 import Home from "./pages/Home/Home";
 
 import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
+import  Footer from "./Components/Footer/Footer";
 import "./App.css";
-import Login from "./Components/Login/Login";
-import Header from "./Components/Header/Header";
-import SignUp from "./pages/signUp/signUp";
-import Category from "./Components/Category/Category";
-
-import { navigate } from "@reach/router";
-
+import Login from "./Components/Login/Login"
+import Header from "./Components/Header/Header"
+import SignUp from"./pages/signUp/signUp"
+import { navigate, redirectTo } from "@reach/router";
 export const UserContext = React.createContext([]);
-console.log(UserContext);
-
+// import Category from"./Components/Category/Category"
 
 
 function App() {
