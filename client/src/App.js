@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Favorite from "./pages/Favorite/Favorite";
 import Home from "./pages/Home/Home";
 
+
 // import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
@@ -13,9 +14,9 @@ import SignUp from "./pages/signUp/signUp";
 
 import { navigate } from "@reach/router";
 
-export const UserContext = React.createContext([]);
-console.log(UserContext);
 
+export const UserContext = React.createContext([]);
+// import Category from"./Components/Category/Category"
 
 
 function App() {

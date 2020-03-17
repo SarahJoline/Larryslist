@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from "./node_modules/react";
 class Category extends Component {
   render() {
 
+<<<<<<< HEAD
     return <div></div>;
 
+=======
+>>>>>>> origin
     return (
       <div>
         <button>Hosing</button>
