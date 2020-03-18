@@ -1,17 +1,29 @@
 import React, { Component } from "react";
+
 class Category extends Component {
   render() {
-<<<<<<< HEAD
-    return <div></div>;
-=======
     return (
       <div>
-        <button>Hosing</button>
-        <button>Jobs</button>
-        <button>Car</button>
+        <div>
+          <button>Hosing</button>
+        </div>
+        <div>
+          <button>Jobs</button>
+        </div>
+        <div>
+          <button>Car</button>
+        </div>
+        <div>
+          <button>Category 4</button>
+        </div>
+        <div>
+          <button>Category 5</button>
+        </div>
+        <div>
+          <button>Category 6</button>
+        </div>
       </div>
     );
->>>>>>> origin
   }
 }
 
