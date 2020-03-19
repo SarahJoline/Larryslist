@@ -9,21 +9,23 @@ import {
 } from "react-router-dom";
 
 // import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
-import Header from "./Components/Header/Header";
-import Login from "./Components/Login/Login";
-import Navbar from "./Components/Navbar/Navbar";
-import NewPost from "./Components/NewPost/NewPost";
 import Favorite from "./pages/Favorite/Favorite";
 import Home from "./pages/Home/Home";
+
+import Footer from "./Components/Footer/Footer";
+import "./App.css";
+import Login from "./Components/Login/Login";
+import Header from "./Components/Header/Header";
+import Navbar from "./Components/Navbar/Navbar";
+import NewPost from "./Components/NewPost/NewPost";
 import SignUp from "./pages/signUp/signUp";
 
-import Category from "./Components/Category/Category";
 import Test from "./Components/PostTest/Test";
 
 import "./App.css";
 
 // import Category from "./Components/Category/Category";
+import { navigate } from "@reach/router";
 
 export const UserContext = React.createContext([]);
 // import Category from"./Components/Category/Category"
@@ -57,7 +59,7 @@ function App(props) {
       setUser(result.user);
       console.log("Navigating");
       // navigate("/home");
-      props.history.push("/home");
+      props.history.push("/Favorite");
     } else {
       console.log(result.error);
     }
@@ -114,30 +116,21 @@ function App(props) {
   return (
     <div>
       <Header />
-      {/* <Navbar /> */}
       <Switch>
-        {/* <Category/> */}
+        <Route exact path="/" component={Home} />
 
-        <Route exact path="/" component={Home}></Route>
-        <Route
-          exact
-          path="/home"
-          component={Home}
-          addNewResult={addNewResult}
-        ></Route>
+        <Route exact path="/home" component={Home} />
 
-        {/* <Route exact path="/search" component={Search}></Route>  */}
         <Route
           exact
           path="/login"
           render={() => <Login loginAttempt={loginAttempt} />}
-        ></Route>
-        <Favorite path="/Favorite" />
+        />
+        {/* <Favorite path="/Favorite" /> */}
         <Route exact path="/Favorite" component={Favorite}></Route>
         <Route exact path="/signUp" component={SignUp}></Route>
 
         <Route exact path="/newPost" component={NewPost}></Route>
-        {/* <Route  component={Four04}></Route> */}
       </Switch>
       <Footer />
     </div>

@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 
 // import { UserContext } from "@reach/router";
 import { UserContext } from "../../App";
+// import { navigate } from "@reach/router";
+// import "./login.css";
 
 const Login = props => {
   const user = useContext(UserContext);
