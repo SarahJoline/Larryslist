@@ -2,13 +2,22 @@
 
 const { verify } = require("jsonwebtoken");
 
-const isAuth = req => {
+const isAuth = (req, res, next) => {
   const authorization = req.headers["authorization"];
   if (!authorization) throw new Error("You need to login.");
 
   const token = authorization.split(" ")[1];
-  const { userId } = verify(token, process.env.ACCESS_TOKEN_SECRET);
-  return userId;
+  verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+    if (err) {
+      res.send({
+        success: false,
+        message: "No user logged in"
+      });
+    } else {
+      req.userId = decoded.userId;
+      next();
+    }
+  });
 };
 
 module.exports = {

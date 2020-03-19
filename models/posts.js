@@ -5,23 +5,23 @@ const Schema = mongoose.Schema;
 
 let PostSchema = new Schema({
   title: {
-    type: String,
-    required: true
+    type: String
+    //required: true
   },
   description: {
     type: String
-    //    required: true
+    //required: true
   },
   category: {
     type: String
-    // required: true
+    //required: true
   },
   image: {
     type: String
   },
   saved: {
-    type: Boolean,
-    default: false
+    type: Boolean
+    //default: false
   },
   comments: [
     {
