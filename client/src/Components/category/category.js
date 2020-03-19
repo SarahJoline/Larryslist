@@ -1,6 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from "./node_modules/react";
 class Category extends Component {
   render() {
+
+    return <div></div>;
+
     return (
       <div>
         <button>Hosing</button>
@@ -8,6 +11,7 @@ class Category extends Component {
         <button>Car</button>
       </div>
     );
+
   }
 }
 
