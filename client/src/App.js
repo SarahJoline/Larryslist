@@ -61,7 +61,7 @@ function App(props) {
   };
 
   const logOutCallback = async () => {
-    await fetch("http://localhost:4000/logout", {
+    await fetch("http://localhost:5000/logout", {
       method: "POST",
       credentials: "include" // Needed to include the cookie
     });
