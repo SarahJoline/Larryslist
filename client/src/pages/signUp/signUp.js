@@ -1,10 +1,11 @@
 import React, { Component, useState } from "react";
 import "./signUp.css";
-import API from "../../Components/utility/API";
+ import API from "../../Components/Utility/API";
 
 import { navigate } from "@reach/router";
 
 const SignUp = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,7 +26,7 @@ const SignUp = () => {
     ).json();
     if (!result.error) {
       console.log(result.message);
-      navigate("/");
+      navigate("/Login");
     } else {
       console.log(result.error);
     }
