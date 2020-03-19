@@ -1,8 +1,9 @@
+import React, { useContext, useEffect, useState } from "react";
 
-import React, { useState, useContext, useEffect } from "react"
-// import { navigate } from "@reach/router";
+// import { UserContext } from "@reach/router";
 import { UserContext } from "../../App";
-import "./Login.css"
+// import { navigate } from "@reach/router";
+// import "./login.css";
 
 const Login = props => {
   const user = useContext(UserContext);
@@ -12,32 +13,10 @@ const Login = props => {
   const handleSubmit = async e => {
     e.preventDefault();
     props.loginAttempt(email, password);
-    // const result = await (
-    //   await fetch("http://localhost:5000/login", {
-    //     method: "POST",
-    //     credentials: "include",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //       email: email,
-    //       password: password
-    //     })
-    //   })
-    // ).json();
-
-    // console.log(result);
-
-    // if (result.accesstoken) {
-    //   setUser({ accesstoken: result.accesstoken });
-    //   console.log("Navigating");
-    //   navigate("/Favorite");
-    // } else {
-    //   console.log(result.error);
-    // }
   };
 
   useEffect(() => {
+    let user = window.localStorage.getItem("token");
     console.log(user);
   }, [user]);
 
@@ -46,65 +25,6 @@ const Login = props => {
       setEmail(e.currentTarget.value);
     } else {
       setPassword(e.currentTarget.value);
-      // =======
-      // import React, { Component } from 'react'
-      // import "./login.css"
-      //  class login extends Component {
-      //      constructor(){
-      //          super()
-
-      //           this.state ={
-      //               username: '',
-      //               password: '',
-      //               redirectTo: null
-      //           }
-      //      }
-      //     //  handleChange =(e)=>{
-      //     //      this.setState({
-      //     //          [event.target.name]:event.target.value
-      //     //      });
-      //     //  }
-
-      //     render() {
-      //         return (
-      //             <div>
-      //                  <main>
-      //         <h2>Form Inputs</h2>
-      //         <form className="form">
-      //             <div className="group">
-      //                 <input
-      //                     type="text"
-      //                     name="text"
-      //                     className="text input"
-      //                     autoComplete="off"
-      //                     placeholder="Name/Email"
-      //                     autoFocus
-      //                 />
-      //                 <label htmlFor="text" className="border">
-      //                     <span className="text">
-      //                     </span>
-      //                 </label>
-      //             </div>
-      //             <div className="group">
-      //                 <input
-      //                     type="text"
-      //                     name="password"
-      //                     className="password input"
-      //                     autoComplete="off"
-      //                     placeholder="password"
-      //                     autoFocus
-      //                 />
-      //                 <label htmlFor="password" className="border">
-      //                     <span className="password">
-      //                     </span>
-      //                 </label>
-      //             </div>
-
-      //         </form>
-      //     </main>
-      //             </div>
-      //         )
-
     }
   };
 

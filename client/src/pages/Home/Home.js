@@ -1,21 +1,68 @@
-
 // import {Link} from "react-router-dom"
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import SearchForm from "../../Components/SearchForm/SearchForm";
+import Autocomplete from "../../Components/Autocomplete/Autocomplete";
+import Categories from "../../Components/Categories/Categories";
+import Display from "../../Components/Display/Display";
 
- class About extends Component {
-    render() {
-        return (
-            <div>
-                <button className="hosing">Hosing</button>
-                <button className="jobs">Jobs</button>
-                <button className="car">Car</button>  
-                <input type="text" placeholder="Search LarryList">
-               </input>
-            </div>
-            
-            
-        )
-    }
+const categories = ["cat1", "cat2", "cat3", "cat4", "miki"];
+class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      displayData: [
+        {
+          title: "CAT!",
+          description: "I like cats",
+          category: "Pets",
+          image: "NOOOOOOOOOOOOOOOOOO"
+        },
+        {
+          title: "DOG!",
+          description: "I like dogs, kinda",
+          category: "Cars",
+          image: "NOOOOOOOOOOOOOOOOOO"
+        },
+        {
+          title: "CHICKENS!",
+          description: "Colin LOVES chickens",
+          category: "Missed Connections",
+          image: "It's a little weird"
+        }
+      ]
+    };
+    this.normalizeData = rawData => {
+      return rawData.map(function(title, index) {
+        return {
+          title: title,
+          image: "k" //rawData[index],
+        };
+      });
+    };
+
+    this.addNewResult = queryResult => {
+      if (queryResult === null) {
+        this.setState({ data: [] });
+        return;
+      }
+      console.log(queryResult);
+      const dummyData = [{ title: "Thanks friend!", image: "Image link here" }];
+      const searchResult = this.normalizeData(dummyData);
+      this.setState({ data: searchResult });
+    };
+  }
+  render() {
+    return (
+      // <p>Home</p>
+      <div>
+        <SearchForm onInput={this.addNewResult} />
+        <Autocomplete data={this.state.data} />
+        {/* <Categories /> */}
+        <Display items={this.state.displayData} />
+      </div>
+    );
+  }
 }
 
-export default About
+export default Home;

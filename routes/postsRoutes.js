@@ -12,6 +12,8 @@ router.post("/newPost", (req, res) => {
     UserId: req.body.UserId
   }).then(newPosts => {
     res.send(newPosts)
+  }).catch(err => {
+    res.json(err)
   })
 })
 
