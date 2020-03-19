@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./searchform.css";
-import { addNewResult } from "../../pages/Home";
 
 class SearchForm extends Component {
   constructor(props) {
     super(props);
     this.state = { querySearch: "" };
+
     this.handleSearch = event => {
       this.setState({ querySearch: event.target.value });
       axios
@@ -15,7 +15,7 @@ class SearchForm extends Component {
           url: "/api/allPosts"
         })
         .then(data => {
-          this.props.addNewResult(data);
+          this.props.onInput(data);
         });
     };
   }
