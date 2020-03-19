@@ -54,10 +54,11 @@ class Home extends Component {
   }
   render() {
     return (
+      // <p>Home</p>
       <div>
         <SearchForm onInput={this.addNewResult} />
         <Autocomplete data={this.state.data} />
-        <Categories />
+        {/* <Categories /> */}
         <Display items={this.state.displayData} />
       </div>
     );

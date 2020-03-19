@@ -10,6 +10,7 @@ import {
 
 // import Navbar from "./Components/Navbar/Navbar";
 import Favorite from "./pages/Favorite/Favorite";
+//import Home from "./pages/Home/Home";
 import Home from "./pages/Home/Home";
 
 import Footer from "./Components/Footer/Footer";
