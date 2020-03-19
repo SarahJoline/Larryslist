@@ -9,10 +9,12 @@ import Login from "./Components/Login/Login";
 import Header from "./Components/Header/Header";
 import SignUp from "./pages/signUp/signUp";
 
+import Test from "./Components/PostTest/Test";
+
 import { navigate } from "@reach/router";
 
 export const UserContext = React.createContext([]);
-console.log(UserContext);
+// import Category from"./Components/Category/Category"
 
 function App() {
   const [user, setUser] = useState({});
@@ -84,6 +86,7 @@ function App() {
     <Router>
       <div>
         <Header />
+        {/* <Navbar /> */}
         <Switch>
           {/* <Category/> */}
 
