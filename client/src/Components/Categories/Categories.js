@@ -1,9 +1,12 @@
 import React from "react";
 import { Button } from "reactstrap";
+import Test from "../Test/Test";
 
-function Categories(props) {
+
+function Categories() {
   return (
     <div>
+      <Test />
       <Button color="danger">Cars</Button>
       <Button color="danger">Jobs</Button>
       <Button color="danger">Pets</Button>

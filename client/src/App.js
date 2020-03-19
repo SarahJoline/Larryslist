@@ -9,7 +9,6 @@ import Login from "./Components/Login/Login";
 import Header from "./Components/Header/Header";
 import SignUp from "./pages/signUp/signUp";
 
-import Test from "./Components/PostTest/Test";
 
 import { navigate } from "@reach/router";
 
