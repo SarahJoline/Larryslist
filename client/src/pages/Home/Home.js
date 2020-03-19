@@ -1,12 +1,12 @@
 // import {Link} from "react-router-dom"
 import React, { Component } from "react";
-import SearchForm from "./../../Components/SearchForm/SearchForm";
+import SearchForm from "../../Components/SearchForm/SearchForm";
 import Autocomplete from "../../Components/Autocomplete/Autocomplete";
 import Categories from "../../Components/Categories/Categories";
 import Display from "../../Components/Display/Display";
 
 const categories = ["cat1", "cat2", "cat3", "cat4", "miki"];
-class About extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,14 +54,15 @@ class About extends Component {
   }
   render() {
     return (
+      // <p>Home</p>
       <div>
         <SearchForm onInput={this.addNewResult} />
         <Autocomplete data={this.state.data} />
-        <Categories />
+        {/* <Categories /> */}
         <Display items={this.state.displayData} />
       </div>
     );
   }
 }
 
-export default About;
+export default Home;
