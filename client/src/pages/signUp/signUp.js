@@ -25,7 +25,7 @@ const SignUp = () => {
     ).json();
     if (!result.error) {
       console.log(result.message);
-      navigate("/");
+      navigate("/Login");
     } else {
       console.log(result.error);
     }

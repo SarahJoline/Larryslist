@@ -117,6 +117,7 @@ app.post("/login", async (req, res) => {
         // Create Refresh and Accesstoken
         const accesstoken = createAccessToken(user[0]._id);
         const refreshtoken = createRefreshToken(user[0]._id);
+        console.log("refresh Token: " + refreshtoken);
         user.refreshtoken = refreshtoken;
         //Send token. Refreshtoken as a cookie and accesstoken as a regular response
         sendRefreshToken(res, refreshtoken);
@@ -128,6 +129,11 @@ app.post("/login", async (req, res) => {
         error: `${err.message}`
       });
     });
+});
+app.post("/refresh_token", isAuth, (req, res) => {
+  db.User.find({ _id: req.userId }).then(result => {
+    res.send(result);
+  });
 });
 
 // log out a signed user
