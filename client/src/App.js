@@ -18,6 +18,9 @@ import Favorite from "./pages/Favorite/Favorite";
 import Home from "./pages/Home/Home";
 import SignUp from "./pages/signUp/signUp";
 
+import Category from "./Components/Category/Category";
+import Test from "./Components/PostTest/Test";
+
 import "./App.css";
 
 // import Category from "./Components/Category/Category";
@@ -98,24 +101,41 @@ function App(props) {
 
   let userToken = window.localStorage.getItem("token");
   console.log("userToken: " + userToken);
+
+  const addNewResult = queryResult => {
+    if (queryResult === null) {
+      this.setState({ data: [] });
+      return;
+    }
+    const searchResult = this.normalizeData(queryResult);
+    this.setState({ data: searchResult });
+  };
+
   return (
     <div>
       <Header />
       {/* <Navbar /> */}
       <Switch>
-        {/* <Category path="/home" /> */}
+        {/* <Category/> */}
 
         <Route exact path="/" component={Home}></Route>
-        <Route exact path="/home" component={Home}></Route>
+        <Route
+          exact
+          path="/home"
+          component={Home}
+          addNewResult={addNewResult}
+        ></Route>
+
         {/* <Route exact path="/search" component={Search}></Route>  */}
         <Route
           exact
           path="/login"
           render={() => <Login loginAttempt={loginAttempt} />}
         ></Route>
-        {/* <Favorite path="/Favorite" /> */}
+        <Favorite path="/Favorite" />
         <Route exact path="/Favorite" component={Favorite}></Route>
         <Route exact path="/signUp" component={SignUp}></Route>
+
         <Route exact path="/newPost" component={NewPost}></Route>
         {/* <Route  component={Four04}></Route> */}
       </Switch>

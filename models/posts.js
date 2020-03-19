@@ -21,7 +21,7 @@ let PostSchema = new Schema({
   },
   saved: {
     type: Boolean,
-    default: false
+    // default: false
   },
   comments: [
     {
