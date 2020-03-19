@@ -19,9 +19,9 @@ import Test from "./Components/PostTest/Test";
 import { navigate } from "@reach/router";
 
 
+
 export const UserContext = React.createContext([]);
 // import Category from"./Components/Category/Category"
-
 
 function App() {
   const [user, setUser] = useState({});
@@ -88,6 +88,16 @@ function App() {
   }, []);
 
   console.log("User: " + user);
+
+  const addNewResult = queryResult => {
+    if (queryResult === null) {
+      this.setState({ data: [] });
+      return;
+    }
+    const searchResult = this.normalizeData(queryResult);
+    this.setState({ data: searchResult });
+  };
+
   return (
     <Router>
       <div>
@@ -96,10 +106,14 @@ function App() {
         <Switch>
           {/* <Category/> */}
 
-          <Route exact path="/" component={Home}>
-            <Test />
-          </Route>
-          <Route exact path="/home" component={Home}></Route>
+          <Route exact path="/" component={Home}></Route>
+          <Route
+            exact
+            path="/home"
+            component={Home}
+            addNewResult={addNewResult}
+          ></Route>
+
           {/* <Route exact path="/search" component={Search}></Route>  */}
           <Route
             exact
@@ -114,7 +128,6 @@ function App() {
         <Footer />
       </div>
     </Router>
-
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from "./node_modules/react";
 class Category extends Component {
   render() {
-
+    return <div></div>;
 
     return (
       <div>
