@@ -10,6 +10,7 @@ import Login from "./Components/Login/Login";
 import Header from "./Components/Header/Header";
 import SignUp from "./pages/signUp/signUp";
 import Category from "./Components/Category/Category";
+import Test from "./Components/PostTest/Test";
 
 import { navigate } from "@reach/router";
 
@@ -91,7 +92,9 @@ function App() {
         <Switch>
           {/* <Category/> */}
 
-          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/" component={Home}>
+            <Test />
+          </Route>
           <Route exact path="/home" component={Home}></Route>
           {/* <Route exact path="/search" component={Search}></Route>  */}
           <Route
