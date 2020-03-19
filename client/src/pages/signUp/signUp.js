@@ -5,6 +5,7 @@ import "./signUp.css";
 import { navigate } from "@reach/router";
 
 const SignUp = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
