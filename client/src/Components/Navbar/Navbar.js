@@ -1,32 +1,44 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import "./Navbar.css";
 
-class navbar extends Component {
-  render() {
-    return (
-      <div className="Wrapper">
-        <div className="navbar navbar-expand-lg navbar-light bg-light">
+function Navbar() {
+  let path = useLocation().pathname;
+  console.log("path", path);
+  return (
+    <div className="Wrapper">
+      <div className="navbar navbar-expand-lg navbar-light bg-light">
+        <button>
+          <Link to="/">Home</Link>
+        </button>
+        {/* <input type="text" placeholder="Search LarryList">
+
+               </input> */}
+
+        {/* <button></button>
+                                  <Link to='/Search'>Search</Link>
+               </button> */}
+        <button>
+          <Link to="/favorite">Favorite</Link>
+        </button>
+        {path == "/login" ? (
+          ""
+        ) : (
           <button>
-            <Link to="/">Home</Link>
+            <Link to="/login">Login</Link>
           </button>
+        )}
+        {path == "/signUp" ? (
+          ""
+        ) : (
           <button>
-            <Link to="/Favorite">Favorite</Link>
+            <Link to="/signUp">SignUp</Link>
           </button>
-          <button>
-            <Link to="/Login">Login</Link>
-          </button>
-          <button>
-            <Link to="/SignUp">SignUp</Link>
-          </button>
-          <button>
-            <Link to="/newPost">Add a post</Link>
-          </button>
-        </div>
+        )}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-export default navbar;
+export default Navbar;

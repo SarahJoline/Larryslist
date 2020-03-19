@@ -8,6 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
   const handleSubmit = async e => {
     e.preventDefault();
     const result = await (
@@ -29,6 +30,7 @@ const SignUp = () => {
       console.log(result.error);
     }
   };
+
 
   const handleChange = e => {
     if (e.currentTarget.name === "email") {

@@ -7,9 +7,10 @@
 }
 
 .navbar {
+  display: flex;
+  justify-content: space-between;
   border-radius: 5px;
   margin: 20px 0;
-  justify-content: center;
   width: 100%;
 }
 

@@ -1,9 +1,14 @@
-import { navigate, redirectTo } from "@reach/router";
+// import { useEffect, useState } from "@reach/router";
 import React, { useEffect, useState } from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import {
+  Redirect,
+  Route,
+  BrowserRouter as Router,
+  Switch,
+  withRouter
+} from "react-router-dom";
 
-import Category from "./Components/Category/Category";
+// import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Login from "./Components/Login/Login";
@@ -15,12 +20,15 @@ import SignUp from "./pages/signUp/signUp";
 
 import "./App.css";
 
-export const UserContext = React.createContext([]);
-console.log(UserContext);
+// import Category from "./Components/Category/Category";
 
-function App() {
+export const UserContext = React.createContext([]);
+// import Category from"./Components/Category/Category"
+
+function App(props) {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  console.log("App props: " + props);
 
   const loginAttempt = async (email, password) => {
     const result = await (
@@ -45,8 +53,8 @@ function App() {
 
       setUser(result.user);
       console.log("Navigating");
-
-      navigate("/home");
+      // navigate("/home");
+      props.history.push("/home");
     } else {
       console.log(result.error);
     }
@@ -60,7 +68,7 @@ function App() {
     // Clear user from context
     setUser({});
     // Navigate back to startpage
-    navigate("/");
+    // navigate("/");
     window.localStorage.setItem("token", "");
   };
 
@@ -68,8 +76,8 @@ function App() {
     // call function that gets token from local storage.
     const savedTeoken = window.localStorage.getItem("token");
     async function refreshToken() {
-      const result = await (
-        await fetch("http://localhost:4000/refresh_token", {
+      const user = await (
+        await fetch("http://localhost:5000/refresh_token", {
           method: "POST",
           credentials: "include", // Needed to include the cookie
           headers: {
@@ -77,11 +85,11 @@ function App() {
           }
         })
       ).json();
-      setUser({
-        // accesstoken: result.accesstoken
-        accesstoken: savedTeoken
-      });
-      setLoading(false);
+      if (user._id) {
+        setUser(user);
+      }
+
+      // setLoading(false);
     }
     refreshToken();
   }, []);
@@ -91,31 +99,29 @@ function App() {
   let userToken = window.localStorage.getItem("token");
   console.log("userToken: " + userToken);
   return (
-    <Router>
-      <div>
-        <Header />
-        <Navbar />
-        <Switch>
-          <Category path="/home" />
+    <div>
+      <Header />
+      {/* <Navbar /> */}
+      <Switch>
+        {/* <Category path="/home" /> */}
 
-          <Route exact path="/" component={Home}></Route>
-          <Route exact path="/home" component={Home}></Route>
-          {/* <Route exact path="/search" component={Search}></Route>  */}
-          <Route
-            exact
-            path="/login"
-            render={() => <Login loginAttempt={loginAttempt} />}
-          ></Route>
-          <Favorite path="/Favorite" />
-          <Route exact path="/Favorite" component={Favorite}></Route>
-          <Route exact path="/signUp" component={SignUp}></Route>
-          <Route exact path="/newPost" component={NewPost}></Route>
-          {/* <Route  component={Four04}></Route> */}
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/home" component={Home}></Route>
+        {/* <Route exact path="/search" component={Search}></Route>  */}
+        <Route
+          exact
+          path="/login"
+          render={() => <Login loginAttempt={loginAttempt} />}
+        ></Route>
+        {/* <Favorite path="/Favorite" /> */}
+        <Route exact path="/Favorite" component={Favorite}></Route>
+        <Route exact path="/signUp" component={SignUp}></Route>
+        <Route exact path="/newPost" component={NewPost}></Route>
+        {/* <Route  component={Four04}></Route> */}
+      </Switch>
+      <Footer />
+    </div>
   );
 }
 
-export default App;
+export default withRouter(App);
