@@ -21,7 +21,6 @@ import Navbar from "./Components/Navbar/Navbar";
 import NewPost from "./Components/NewPost/NewPost";
 import SignUp from "./pages/signUp/signUp";
 
-import Test from "./Components/PostTest/Test";
 
 import "./App.css";
 
