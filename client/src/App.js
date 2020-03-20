@@ -24,7 +24,6 @@ import SignUp from "./pages/signUp/signUp";
 import "./App.css";
 
 // import Category from "./Components/Category/Category";
-import { navigate } from "@reach/router";
 
 export const UserContext = React.createContext([]);
 // import Category from"./Components/Category/Category"
@@ -58,7 +57,7 @@ function App(props) {
       setUser(result.user);
       console.log("Navigating");
       // navigate("/home");
-      props.history.push("/Favorite");
+      props.history.push("/home");
     } else {
       console.log(result.error);
     }
@@ -116,13 +115,13 @@ function App(props) {
     <div>
       <Header />
       <Switch>
-        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/" component={Home} /> */}
 
         <Route exact path="/home" component={Home} />
 
         <Route
           exact
-          path="/login"
+          path="/"
           render={() => <Login loginAttempt={loginAttempt} />}
         />
         {/* <Favorite path="/Favorite" /> */}
