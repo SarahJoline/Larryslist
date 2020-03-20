@@ -24,7 +24,7 @@ const SignUp = props => {
     ).json();
     if (!result.error) {
       console.log(result.message);
-      props.history.push("/home");
+      props.history.push("/");
     } else {
       console.log(result.error);
     }

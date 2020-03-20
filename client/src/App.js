@@ -75,7 +75,7 @@ function App(props) {
 
   useEffect(() => {
     // call function that gets token from local storage.
-    const savedTeoken = window.localStorage.getItem("token");
+    const savedToken = window.localStorage.getItem("token");
     async function refreshToken() {
       const user = await (
         await fetch("http://localhost:5000/refresh_token", {
