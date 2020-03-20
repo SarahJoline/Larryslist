@@ -45,12 +45,12 @@ let UserSchema = new Schema({
       ref: "Post"
     }
   ],
-  // post: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Post"
-  //   }
-  // ],
+  saved: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Post"
+    }
+  ],
   comments: [
     {
       type: Schema.Types.ObjectId,
