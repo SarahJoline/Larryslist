@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import "./signUp.css";
-import API from "../../Components/Utility/API";
+import API from "../../Components/utility/API";
 
 import { navigate } from "@reach/router";
 
@@ -24,7 +24,7 @@ const SignUp = props => {
     ).json();
     if (!result.error) {
       console.log(result.message);
-      props.history.push("/home");
+      props.history.push("/");
     } else {
       console.log(result.error);
     }

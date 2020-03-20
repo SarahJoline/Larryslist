@@ -10,9 +10,7 @@ import {
 
 // import Navbar from "./Components/Navbar/Navbar";
 import Favorite from "./pages/Favorite/Favorite";
-//import Home from "./pages/Home/Home";
 import Home from "./pages/Home/Home";
-
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
 import Login from "./Components/Login/Login";
@@ -77,7 +75,7 @@ function App(props) {
 
   useEffect(() => {
     // call function that gets token from local storage.
-    const savedTeoken = window.localStorage.getItem("token");
+    const savedToken = window.localStorage.getItem("token");
     async function refreshToken() {
       const user = await (
         await fetch("http://localhost:5000/refresh_token", {
