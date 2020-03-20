@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 //import { Button } from "reactstrap";
 import Test from "../Test/Test";
-import API from "../utility/API"
+import API from "../Utility/API"
 
 function Categories() {
   const [posts, setPosts]= useState([])

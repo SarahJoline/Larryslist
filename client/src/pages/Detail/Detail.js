@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import API from "../../Components/utility/API";
+import API from "../../Components/Utility/API";
 import {useParams} from "react-router-dom"
 
 let _id = "5e73cd8debd0d346e0c48e9e"
