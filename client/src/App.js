@@ -13,11 +13,11 @@ import Favorite from "./pages/Favorite/Favorite";
 import Home from "./pages/Home/Home";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
-import Login from "./Components/Login/login";
+import Login from "./Components/Login/login.js";
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import NewPost from "./Components/NewPost/NewPost";
-import SignUp from "./pages/signUp/signUp";
+import SignUp from "./pages/signUp/signUp"; 
 
 import "./App.css";
 

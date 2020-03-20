@@ -31,9 +31,9 @@ app.use(
 );
 
 const db = require("./models");
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/larryslist_db";
 
-mongoose.connect("mongodb://localhost/larryslist_db", {
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
