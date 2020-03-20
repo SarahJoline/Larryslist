@@ -4,10 +4,9 @@ import API from "../../Components/utility/API";
 
 import { navigate } from "@reach/router";
 
-const SignUp = () => {
+const SignUp = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -25,12 +24,11 @@ const SignUp = () => {
     ).json();
     if (!result.error) {
       console.log(result.message);
-      navigate("/Login");
+      props.history.push("/");
     } else {
       console.log(result.error);
     }
   };
-
 
   const handleChange = e => {
     if (e.currentTarget.name === "email") {

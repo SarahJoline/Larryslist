@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default {
+
     getposts:function(){
         return axios.get("/api/allPosts");
     },

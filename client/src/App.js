@@ -10,18 +10,15 @@ import {
 
 // import Navbar from "./Components/Navbar/Navbar";
 import Favorite from "./pages/Favorite/Favorite";
-//import Home from "./pages/Home/Home";
 import Home from "./pages/Home/Home";
-
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
-import Login from "./Components/Login/Login";
+import Login from "./Components/Login/login";
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import NewPost from "./Components/NewPost/NewPost";
 import SignUp from "./pages/signUp/signUp";
 import Post from "./pages/Post/Post";
-
 
 import "./App.css";
 
@@ -62,7 +59,7 @@ function App(props) {
       setUser(result.user);
       console.log("Navigating");
       // navigate("/home");
-      props.history.push("/Favorite");
+      props.history.push("/home");
     } else {
       console.log(result.error);
     }
@@ -82,7 +79,7 @@ function App(props) {
 
   useEffect(() => {
     // call function that gets token from local storage.
-    const savedTeoken = window.localStorage.getItem("token");
+    const savedToken = window.localStorage.getItem("token");
     async function refreshToken() {
       const user = await (
         await fetch("http://localhost:5000/refresh_token", {
@@ -120,13 +117,13 @@ function App(props) {
     <div>
       <Header />
       <Switch>
-        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/" component={Home} /> */}
 
         <Route exact path="/home" component={Home} />
 
         <Route
           exact
-          path="/login"
+          path="/"
           render={() => <Login loginAttempt={loginAttempt} />}
         />
         {/* <Favorite path="/Favorite" /> */}
