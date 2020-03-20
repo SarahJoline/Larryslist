@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import "./signUp.css";
-import API from "../../Components/Utility/API";
+import API from "../../Components/utility/API";
 
 import { navigate } from "@reach/router";
 
