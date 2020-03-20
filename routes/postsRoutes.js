@@ -4,12 +4,13 @@ const path = require("path");
 const db = require("../models");
 
 router.post("/newPost", (req, res) => {
+  console.log("GOT IT")
   db.Post.create({
-    category: req.body.category,
+    category: req.body.category||"",
     title: req.body.title,
     description: req.body.description,
-    image: req.body.image,
-    UserId: req.body.UserId
+    image: req.body.image ||"",
+    //UserId: req.body.UserId || ""
   }).then(newPosts => {
     res.send(newPosts)
   }).catch(err => {

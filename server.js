@@ -53,7 +53,7 @@ app.use(express.json());
 app.use(logger("dev"));
 
 const apiRoutes = require("./routes/apiRoutes");
-app.use("/", apiRoutes);
+app.use("/comments", apiRoutes);
 
 const postsRoutes = require("./routes/postsRoutes");
 app.use("/api", postsRoutes);
@@ -163,3 +163,13 @@ app.post("/home", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`listening at http://localhost:${PORT}`);
 });
+
+//COMMENTS
+//steps per feature
+    //make routes (CRUD)
+    //update react API for those
+    //use the api Detail.js
+//features
+    //post comments from form
+    //get comments in  useEffect
+    //ICEBOX: flag
