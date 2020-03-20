@@ -26,6 +26,7 @@ import "./App.css";
 
 // import Category from "./Components/Category/Category";
 import { navigate } from "@reach/router";
+// import { Carousel } from "react-responsive-carousel";
 
 export const UserContext = React.createContext([]);
 // import Category from"./Components/Category/Category"
@@ -125,13 +126,14 @@ function App(props) {
           exact
           path="/login"
           render={() => <Login loginAttempt={loginAttempt} />}
-        />
+          />
         {/* <Favorite path="/Favorite" /> */}
         <Route exact path="/Favorite" component={Favorite}></Route>
         <Route exact path="/signUp" component={SignUp}></Route>
 
         <Route exact path="/newPost" component={NewPost}></Route>
       </Switch>
+          {/* <Carousel/> */}
       <Footer />
     </div>
   );
