@@ -82,7 +82,7 @@ function App(props) {
     const savedToken = window.localStorage.getItem("token");
     async function refreshToken() {
       const user = await (
-        await fetch("http://localhost:5000/refresh_token", {
+        await fetch("/refresh_token", {
           method: "POST",
           credentials: "include", // Needed to include the cookie
           headers: {
