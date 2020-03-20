@@ -27,7 +27,9 @@ function Detail() {
             </p>
             <form>
                 <input type="text" ref={myRef} />
-                <button onClick={()=>console.log(myRef.current.value)} type="button">Make a Comment!</button>
+                <button
+                    onClick={() => API.savecomment(id, { text: myRef.current.value })}
+                    type="button">Make a Comment!</button>
             </form>
         </div>
     )
