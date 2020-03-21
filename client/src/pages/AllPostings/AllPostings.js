@@ -5,6 +5,23 @@ import Axios from "axios";
 
 function AllPostings(props) {
     const [posts, setposts] = useState({ posts: [] });
+    const [comment, setComment] =
+        useState({
+            comments: [],
+            id: ''
+        })
+
+    const SubmitValue = (event) => {
+        event.preventDefault();
+        //console.log(comment);
+        const id = comment.id;
+        const userComment = comment.comments
+        //console.log(userComment)
+        //console.log(id);
+        Axios.patch(`/api/comments/${id}`, { comments: userComment })
+            .then(newComment => console.log(newComment))
+        window.location.reload(true)
+    }
 
     useEffect(() => {
         API.getposts().then(res => {
@@ -13,12 +30,7 @@ function AllPostings(props) {
         });
     }, []);
 
-    useEffect(() => {
-        API.getposts().then(res => {
-            //console.log(res.data[0].comments)
-            setposts({ posts: res.data })
-        })
-    }, [])
+
 
 
     return (
@@ -30,8 +42,8 @@ function AllPostings(props) {
                 <div className="postingss">
                     {posts.posts.map((post, i) => {
                         return (
-                            <div className="render-post">
-                                <div className="card text-white bg-danger mb-3" key={i}>
+                            <div className="render-post" key={i}>
+                                <div className="card text-white bg-danger mb-3">
                                     <div className="card-header">
                                         <h5>Title: {post.title}</h5>
                                     </div>
@@ -53,23 +65,32 @@ function AllPostings(props) {
                                             }
                                         ></input>
                                         <div className="form-group">
-                                            <label for="exampleFormControlTextarea1">
+                                            <label>
                                                 Add Comment: 🤬
                                             </label>
                                             <textarea
-                                                placeholder="work in progress.."
-                                                class="form-control"
-                                                id="exampleFormControlTextarea1"
+                                                className="form-control"
+                                                id={post._id}
                                                 rows="3"
+                                                onChange={e => setComment({
+                                                    comments: e.target.value,
+                                                    id: post._id
+                                                })}
                                             ></textarea>
                                             <input
+                                                id={post._id}
                                                 type="submit"
                                                 value="add comment"
                                                 className="btn btn-dark"
-                                                onClick={() => {
-                                                    alert('You have commented!')
-                                                }}
+                                                onClick={SubmitValue}
                                             />
+                                            <textarea
+                                                className="form-control"
+                                                id={post._id}
+                                                rows="2"
+                                                value={post.comments}
+                                                placeholder="Your Comment.."
+                                            ></textarea>
                                         </div>
                                     </div>
                                 </div>
