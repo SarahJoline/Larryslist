@@ -31,13 +31,13 @@ export const UserContext = React.createContext([]);
 // import Category from"./Components/Category/Category"
 
 function App(props) {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([{}]);
   const [loading, setLoading] = useState(true);
   console.log("App props: " + props);
 
   const loginAttempt = async (email, password) => {
     const result = await (
-      await fetch("http://localhost:5000/login", {
+      await fetch("/login", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -82,7 +82,7 @@ function App(props) {
     const savedToken = window.localStorage.getItem("token");
     async function refreshToken() {
       const user = await (
-        await fetch("http://localhost:5000/refresh_token", {
+        await fetch("/refresh_token", {
           method: "POST",
           credentials: "include", // Needed to include the cookie
           headers: {
@@ -97,9 +97,9 @@ function App(props) {
       // setLoading(false);
     }
     refreshToken();
-  }, []);
+  }, []);// our app is one step behind,user is not being update as we refresh
 
-  console.log("User: " + user);
+  console.log("User: " + JSON.stringify(user));
 
   let userToken = window.localStorage.getItem("token");
   console.log("userToken: " + userToken);
@@ -115,7 +115,7 @@ function App(props) {
 
   return (
     <div>
-      <Header />
+      <Header user={user}/>
       <Switch>
         {/* <Route exact path="/" component={Home} /> */}
 
