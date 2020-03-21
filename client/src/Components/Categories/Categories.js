@@ -1,11 +1,30 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 //import { Button } from "reactstrap";
 import Test from "../Test/Test";
-
+import API from "../Utility/API"
 
 function Categories() {
+  const [posts, setPosts]= useState([])
+  //get all posts
+  useEffect(() => {
+    API.getposts().then(getposts => {
+      console.log(getposts)
+      setPosts(getposts.data)
+    })
+  },[])
+  //render them to jsx
   return (
     <div>
+      <div> {posts.map(post => {
+        return (
+          <p><a href={"/detail/"+post._id}>
+            {post.title}
+          </a>
+          </p>
+        )
+      })}
+      </div>
+     
       <Test />
       {/* <Button color="danger">Cars</Button>
       <Button color="danger">Jobs</Button>

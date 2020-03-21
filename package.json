@@ -2,6 +2,9 @@
   "name": "larryslist",
   "version": "1.0.0",
   "description": "Team:",
+  "engines": {
+    "node": "13.7.x"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

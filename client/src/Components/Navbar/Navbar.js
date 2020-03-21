@@ -2,23 +2,29 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import "./Navbar.css";
+import { navigate } from "@reach/router";
 
-function Navbar() {
+function Navbar(props) {
   let path = useLocation().pathname;
   console.log("path", path);
+  const logOutCallback = async () => {
+    await fetch("http://localhost:5000/logout", {
+      method: "POST",
+      credentials: "include" // Needed to include the cookie
+    });
+    // Clear user from context
+    // setUser({});
+    // Navigate back to startpage
+    navigate("/");
+    window.localStorage.setItem("token", "");
+  };
   return (
     <div className="Wrapper">
       <div className="navbar navbar-expand-lg navbar-light bg-light">
         <button>
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
         </button>
-        {/* <input type="text" placeholder="Search LarryList">
 
-               </input> */}
-
-        {/* <button></button>
-                                  <Link to='/Search'>Search</Link>
-               </button> */}
         <button>
           <Link to="/favorite">Favorite</Link>
         </button>
@@ -26,7 +32,7 @@ function Navbar() {
           ""
         ) : (
           <button>
-            <Link to="/login">Login</Link>
+            <Link to="/">Login</Link>
           </button>
         )}
         {path == "/signUp" ? (
@@ -36,6 +42,13 @@ function Navbar() {
             <Link to="/signUp">SignUp</Link>
           </button>
         )}
+        <button
+          onClick={() => {
+            logOutCallback();
+          }}
+        >
+          <Link to="/"> log Out</Link>
+        </button>
       </div>
     </div>
   );

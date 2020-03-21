@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
-// import { UserContext } from "@reach/router";
 import { UserContext } from "../../App";
-// import { navigate } from "@reach/router";
 // import "./login.css";
 
 const Login = props => {
@@ -30,6 +28,7 @@ const Login = props => {
 
   return (
     <div className="login-wrapper">
+      <h1> Welcome to LarrysList Please log in to start your search</h1>
       <form onSubmit={handleSubmit}>
         <div>Login</div>
         <div className="login-input">
