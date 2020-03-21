@@ -1,12 +1,77 @@
-.test{
-    height: 300px;
-    background-color: white;
-    display:flex;
-    flex-direction: column;
-    width: 500px;
-    align-items: center;
-}
+ input {
+     display: flex;
+     justify-content: center;
+     width: 100%;
+     height: 10px;
+     border-radius: 10px;
+     padding: 0.7em 1.4em;
+     margin: 0 0.3em 0.3em 0;
+     font-family: 'Roboto', sans-serif;
+     text-transform: uppercase;
+     box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+ }
 
-.description{
-    height: 100px;
-}
+ button {
+     width: 20%;
+     border-radius: 10px;
+     background-color: rgb(90, 88, 88);
+     color: white;
+     display: flex;
+     align-items: center;
+     padding: 0.7em 1.4em;
+     margin: 0 0.3em 0.3em 0;
+     font-family: 'Roboto', sans-serif;
+     text-transform: uppercase;
+     box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+
+
+ }
+
+ .test-parent {
+     display: flex;
+     justify-content: center;
+ }
+
+ .test {
+     display: flex;
+     flex-direction: column;
+     justify-content: inherit;
+     height: 350px;
+     background-color: white;
+     width: 95%;
+     background-color: #a51010;
+     color: white;
+     border-radius: 10px;
+     padding: 10px 30px 10px;
+     align-self: auto;
+     margin-bottom: 50px;
+     padding: 0.7em 1.4em;
+     margin: 0 0.3em 0.3em 0;
+     font-family: 'Roboto', sans-serif;
+     text-transform: uppercase;
+     box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+
+
+ }
+
+ .description {
+     height: 150px;
+     width: 100%;
+     border-radius: 10px;
+     display: flex;
+     padding: 0.7em 1.4em;
+     margin: 0 0.3em 0.3em 0;
+     font-family: 'Roboto', sans-serif;
+     text-transform: uppercase;
+     box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+ }
+
+
+ select {
+     color: white;
+     background-color: rgb(80, 76, 76);
+     width: 20%;
+     display: flex;
+     align-items: center;
+     height: 40px;
+ }

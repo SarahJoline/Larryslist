@@ -20,7 +20,8 @@ function Test() {
     }
 
     return (
-        <form className="test" onSubmit={handleSubmit(onSubmit)}>
+        <div className="test-parent">
+<form className="test" onSubmit={handleSubmit(onSubmit)}>
             <label> Posting Title:</label>
             <input name="title"
                 ref={register} />
@@ -34,11 +35,13 @@ function Test() {
                 <option value="jobs">Jobs</option>
                 <option value="pets">Pets</option>
                 <option value="housing">Housing</option>
-                <option value="connect">Missied Connections</option>
+                <option value="connect">Missed Connections</option>
             </select>
             <br />
-            <input type="submit" />
+            <button type="submit">Submit</button>
         </form>
+        </div>
+        
     )
 }
 

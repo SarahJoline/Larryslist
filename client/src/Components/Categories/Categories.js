@@ -15,7 +15,7 @@ function Categories() {
   //render them to jsx
   return (
     <div>
-      <div> {posts.map(post => {
+      {/* <div> {posts.map(post => {
         return (
           <p><a href={"/detail/"+post._id}>
             {post.title}
@@ -23,7 +23,7 @@ function Categories() {
           </p>
         )
       })}
-      </div>
+      </div> */}
      
       <Test />
       {/* <Button color="danger">Cars</Button>
