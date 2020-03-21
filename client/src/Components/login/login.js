@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { UserContext } from "../../App";
-// import "./login.css";
+import "./login.css";
 
 const Login = props => {
   const user = useContext(UserContext);
@@ -27,30 +27,47 @@ const Login = props => {
   };
 
   return (
-    <div className="login-wrapper">
-      <h1> Welcome to LarrysList Please log in to start your search</h1>
-      <form onSubmit={handleSubmit}>
-        <div>Login</div>
-        <div className="login-input">
-          <input
-            value={email}
-            onChange={handleChange}
-            type="text"
-            name="email"
-            placeholder="Email"
-            autoComplete="email"
-          />
-          <input
-            value={password}
-            onChange={handleChange}
-            type="password"
-            name="password"
-            autoComplete="current-password"
-            placeholder="Password"
-          />
-          <button type="submit">Login</button>
+    <div className="loginDiv">
+      <div className="loginContainer">
+        <div className="title">
+          <h1> Welcome to LarrysList</h1>
+          <h1> Please log in to start your search</h1>
         </div>
-      </form>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="login-input">
+            <div className="inputRow">
+              <label className="label">Email</label>
+              <input
+                className="input"
+                value={email}
+                onChange={handleChange}
+                type="text"
+                name="email"
+                // placeholder="Email"
+                autoComplete="email"
+              />
+            </div>
+            <div className="inputRow">
+              <label className="label">Password</label>
+              <input
+                className="input"
+                value={password}
+                onChange={handleChange}
+                type="password"
+                name="password"
+                autoComplete="current-password"
+                // placeholder="Password"
+              />
+            </div>
+            <button
+              className="btn btn-dark btn-lg btn-block mt-4"
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

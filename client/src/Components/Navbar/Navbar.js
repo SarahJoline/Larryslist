@@ -34,6 +34,7 @@ function Navbar(props) {
   //     )}
   // )}
   console.log("navbar", props.user);
+<<<<<<< HEAD
   return (
     <div className="Wrapper">
       <div
@@ -64,10 +65,17 @@ function Navbar(props) {
             <div class="button-border button-border-bottom"></div>
           </div>
         </div>
+=======
+
+  return (
+    <div className="Wrapper">
+      <div className="navbar navbar-expand-lg navbar-light bg-light">
+>>>>>>> da6ea1518f0ae632d1500b5a6b104e4a75bd8f16
         {props.user[0] ? (
           <>
             {props.user[0]._id ? (
               <>
+<<<<<<< HEAD
                 <div class="button">
                   <div class="bottom"></div>
                   <div class="top">
@@ -134,6 +142,47 @@ function Navbar(props) {
                     <div class="button-border button-border-bottom"></div>
                   </div>
                 </div>
+=======
+                <button>
+                  <Link to="/home">Home</Link>
+                </button>
+
+                <button>
+                  <Link to="/allpostings">All Postings</Link>
+                </button>
+
+                <button>
+                  <Link to="/favorite">Favorite</Link>
+                </button>
+
+                <button
+                  onClick={() => {
+                    logOutCallback();
+                  }}
+                >
+                  <Link to="/"> log Out</Link>
+                </button>
+                <button>
+                  <Link to="/post">post item</Link>
+                </button>
+              </>
+            ) : (
+              <>
+                {path == "/login" ? (
+                  ""
+                ) : (
+                  <button>
+                    <Link to="/">Login</Link>
+                  </button>
+                )}
+                {path == "/signUp" ? (
+                  ""
+                ) : (
+                  <button>
+                    <Link to="/signUp">SignUp</Link>
+                  </button>
+                )}
+>>>>>>> da6ea1518f0ae632d1500b5a6b104e4a75bd8f16
               </>
             )}
           </>

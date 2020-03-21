@@ -21,6 +21,7 @@ function Favorite(props) {
 
   return (
     <div className="post-container">
+      <h2 className="header">Favorite Postings:</h2>
       <div className="postings">
         {posts.posts.map((post, i) => {
           return (

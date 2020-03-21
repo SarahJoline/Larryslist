@@ -5,10 +5,10 @@ import Autocomplete from "../../Components/Autocomplete/Autocomplete";
 import Categories from "../../Components/Categories/Categories";
 import Display from "../../Components/Display/Display";
 
-import PostForm from "../../Components/PostForm/PostForm"
+import PostForm from "../../Components/PostForm/PostForm";
 
-import  Carousel from "../../Components/Carousel/Carousel";
-
+import Carousel from "../../Components/Carousel/Carousel";
+import "./Home.css";
 
 const categories = ["Car", "Pet", "Jobs", "Housing"];
 class Home extends Component {
@@ -60,16 +60,17 @@ class Home extends Component {
   render() {
     return (
       // <p>Home</p>
-      <div>
-
-        <PostForm />
-
-        <Carousel/>
-
-        <SearchForm onInput={this.addNewResult} />
-        <Autocomplete data={this.state.data} />
+      <div className="homePage">
+        {/* <PostForm /> */}
+        <div className="homeSearch">
+          <SearchForm onInput={this.addNewResult} />
+        </div>
+        <div className="carouselContainer">
+          <Carousel />
+        </div>
+        {/* <Autocomplete data={this.state.data} /> */}
         {/* <Categories /> */}
-        <Display items={this.state.displayData} />
+        {/* <Display items={this.state.displayData} /> */}
       </div>
     );
   }

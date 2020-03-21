@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from "react";
 //import { Button } from "reactstrap";
 
-import API from "../Utility/API"
+import API from "../utility/API";
 
 function Categories() {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
   //get all posts
   useEffect(() => {
     API.getposts().then(getposts => {
-      console.log(getposts)
-      setPosts(getposts.data)
-    })
-  }, [])
+      console.log(getposts);
+      setPosts(getposts.data);
+    });
+  }, []);
   //render them to jsx
   return (
     <div>
-      <div> {posts.map(post => {
-        return (
-          <p><a href={"/detail/" + post._id}>
-            {post.title}
-          </a>
-          </p>
-        )
-      })}
+      <div>
+        {" "}
+        {posts.map(post => {
+          return (
+            <p>
+              <a href={"/detail/" + post._id}>{post.title}</a>
+            </p>
+          );
+        })}
       </div>
 
       {/* <Button color="danger">Cars</Button>

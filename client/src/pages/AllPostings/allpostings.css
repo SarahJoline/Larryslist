@@ -1,0 +1,40 @@
+.header-container{
+    display:flex;
+    justify-content: center;
+}
+.header{
+    display:flex;
+    background-color: rgb(240, 74, 45);
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+}
+.post-container{
+    display:flex;
+    justify-content: center;
+}
+.postingss {
+    display: flex;
+    width: 960px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top:10px;
+}
+.card-text{
+    display:flex;
+    flex-wrap: wrap;
+}
+.card-title{
+    display:flex;
+    flex-wrap:wrap;
+}
+.render-post{
+    display:flex;
+    width: 300px;
+    flex-wrap: wrap;
+}
+
+input{
+    margin-bottom: 10px;
+    margin-top:10px;
+}
