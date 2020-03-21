@@ -26,22 +26,26 @@ function Navbar(props) {
         </button>
 
         <button>
+          <Link to="/allpostings">All Postings</Link>
+        </button>
+
+        <button>
           <Link to="/favorite">Favorite</Link>
         </button>
         {path == "/login" ? (
           ""
         ) : (
-          <button>
-            <Link to="/">Login</Link>
-          </button>
-        )}
+            <button>
+              <Link to="/">Login</Link>
+            </button>
+          )}
         {path == "/signUp" ? (
           ""
         ) : (
-          <button>
-            <Link to="/signUp">SignUp</Link>
-          </button>
-        )}
+            <button>
+              <Link to="/signUp">SignUp</Link>
+            </button>
+          )}
         <button
           onClick={() => {
             logOutCallback();

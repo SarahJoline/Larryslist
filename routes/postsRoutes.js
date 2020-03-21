@@ -52,9 +52,36 @@ router.delete("/allPosts/:id", (req, res) => {
     _id: req.params.id
   }).then(() => {
     res.send("success")
+  }).catch(err => {
+    res.send(err)
   })
 })
 
+//Router to get all saved
+router.get('/favorite', (req, res) => {
+  db.Post.find({ saved: true }).then(allSavedPosts => {
+    res.send(allSavedPosts)
+  }).catch(err => {
+    res.send(err)
+  })
+})
 
+//Route to change Boolean from false to true in saved
+router.patch("/favorite/:id", (req, res) => {
+  console.log(req.body)
+  db.Post.updateOne({ _id: req.params.id }, req.body).then((okpack) => {
+    res.json(okpack)
+  })
+})
+
+router.delete("/favorite/:id", (req, res) => {
+  db.Post.deleteOne({
+    _id: req.params.id
+  }).then(res => {
+    res.send(res)
+  }).catch(err => {
+    res.send(err)
+  })
+})
 
 module.exports = router;

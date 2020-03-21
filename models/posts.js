@@ -20,8 +20,8 @@ let PostSchema = new Schema({
     type: String
   },
   saved: {
-    type: Boolean
-    //default: false
+    type: Boolean,
+    default: false
   },
   comments: [
     {

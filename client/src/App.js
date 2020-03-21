@@ -18,7 +18,7 @@ import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import NewPost from "./Components/NewPost/NewPost";
 import SignUp from "./pages/signUp/signUp";
-
+import AllPostings from "./pages/AllPostings/AllPostings"
 import "./App.css";
 
 // import Category from "./Components/Category/Category";
@@ -116,7 +116,7 @@ function App(props) {
         {/* <Route exact path="/" component={Home} /> */}
 
         <Route exact path="/home" component={Home} />
-
+        <Route exact path="/allpostings" component={AllPostings} />
         <Route
           exact
           path="/"

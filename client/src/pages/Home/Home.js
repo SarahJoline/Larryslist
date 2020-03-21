@@ -4,6 +4,7 @@ import SearchForm from "../../Components/SearchForm/SearchForm";
 import Autocomplete from "../../Components/Autocomplete/Autocomplete";
 import Categories from "../../Components/Categories/Categories";
 import Display from "../../Components/Display/Display";
+import PostForm from "../../Components/PostForm/PostForm"
 
 const categories = ["cat1", "cat2", "cat3", "cat4", "miki"];
 class Home extends Component {
@@ -33,7 +34,7 @@ class Home extends Component {
       ]
     };
     this.normalizeData = rawData => {
-      return rawData.map(function(title, index) {
+      return rawData.map(function (title, index) {
         return {
           title: title,
           image: "k" //rawData[index],
@@ -56,6 +57,7 @@ class Home extends Component {
     return (
       // <p>Home</p>
       <div>
+        <PostForm />
         <SearchForm onInput={this.addNewResult} />
         <Autocomplete data={this.state.data} />
         {/* <Categories /> */}
