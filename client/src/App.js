@@ -68,8 +68,8 @@ function App(props) {
     // Clear user from context
     setUser({});
     // Navigate back to startpage
-    // navigate("/");
     window.localStorage.setItem("token", "");
+    window.location.reload(true);
   };
 
   useEffect(() => {
@@ -111,28 +111,30 @@ function App(props) {
 
   return (
     <div>
-      <Header user={user} />
-      <Switch>
-        {/* <Route exact path="/" component={Home} /> */}
+      <div className="backGround">
+        <Header user={user} />
+        <Switch>
+          {/* <Route exact path="/" component={Home} /> */}
 
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/allpostings" component={AllPostings} />
-        <Route
-          exact
-          path="/"
-          render={() => <Login loginAttempt={loginAttempt} />}
-        />
-        {/* <Favorite path="/Favorite" /> */}
-        <Route exact path="/Favorite" component={Favorite}></Route>
-        <Route exact path="/signUp" component={SignUp}></Route>
-        <Route exact path="/cats" component={Categories}></Route>
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/allpostings" component={AllPostings} />
+          <Route
+            exact
+            path="/"
+            render={() => <Login loginAttempt={loginAttempt} />}
+          />
+          {/* <Favorite path="/Favorite" /> */}
+          <Route exact path="/Favorite" component={Favorite}></Route>
+          <Route exact path="/signUp" component={SignUp}></Route>
+          <Route exact path="/cats" component={Categories}></Route>
 
-        <Route exact path="/newPost" component={NewPost}></Route>
-        <Route exact path="/post" component={PostForm}></Route>
-        <Route path="/detail/:id" component={Detail}></Route>
-      </Switch>
-      {/* <Carousel/> */}
-      <Footer />
+          <Route exact path="/newPost" component={NewPost}></Route>
+          <Route exact path="/post" component={PostForm}></Route>
+          <Route path="/detail/:id" component={Detail}></Route>
+        </Switch>
+        {/* <Carousel/> */}
+        <Footer />
+      </div>
     </div>
   );
 }
