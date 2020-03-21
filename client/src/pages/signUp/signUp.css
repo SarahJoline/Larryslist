@@ -1,0 +1,45 @@
+.loginDiv {
+  text-align: center;
+  width: 70%;
+  min-height: 70vh;
+  margin-left: 15%;
+}
+
+.title {
+  text-align: center;
+  border-color: black;
+  border-style: double;
+  background-color: rgba(255, 127, 80, 0.63);
+  margin-bottom: 10px;
+}
+
+.h2 {
+  font-size: 48px;
+}
+.form {
+  background-color: rgba(165, 165, 165, 0.794);
+  text-align: start;
+  padding: 5%;
+}
+
+.inputRow {
+  display: flex;
+}
+
+.label {
+  font-size: 36px;
+  flex: 1;
+  font-weight: bold;
+}
+
+.input {
+  height: 50px;
+  flex: 3;
+  border-radius: 2%;
+  border-style: solid;
+}
+
+.loginContainer {
+  /* background-color: rgb(153, 160, 95); */
+  padding: 5%;
+}

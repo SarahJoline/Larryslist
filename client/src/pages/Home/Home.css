@@ -1,0 +1,15 @@
+.homePage {
+  display: block;
+  width: 100%;
+  /* height: 300px; */
+}
+
+.carouselContainer {
+  width: 60%;
+  margin-left: 20%;
+}
+
+.homeSearch {
+  width: 50%;
+  margin-left: 25%;
+}

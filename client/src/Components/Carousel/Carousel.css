@@ -1,0 +1,6 @@
+.carouselImg {
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  width: 100%;
+}

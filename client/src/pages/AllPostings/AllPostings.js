@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from "react"
-import API from "../../Components/Utility/API"
-import './allpostings.css'
-import Axios from "axios"
+import React, { useEffect, useState } from "react";
+import API from "../../Components/utility/API";
+import "./allpostings.css";
+import Axios from "axios";
 
 function AllPostings(props) {
-    const [posts, setposts] = useState({ posts: [] })
+    const [posts, setposts] = useState({ posts: [] });
 
+    useEffect(() => {
+        API.getposts().then(res => {
+            //console.log(res.data[0].comments)
+            setposts({ posts: res.data });
+        });
+    }, []);
 
     useEffect(() => {
         API.getposts().then(res => {
@@ -75,4 +81,4 @@ function AllPostings(props) {
         </div>
     )
 }
-export default AllPostings
+export default AllPostings;
