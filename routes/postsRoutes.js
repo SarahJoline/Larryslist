@@ -32,7 +32,7 @@ router.get('/find/:id', (req, res) => {
   db.Post.find({
     _id: req.params.id
   }).then(searchedPost => {
-    res.send(searchedPost)
+    res.json(searchedPost)
   })
 })
 
@@ -83,6 +83,12 @@ router.delete("/favorite/:id", (req, res) => {
   }).catch(err => {
     res.send(err)
   })
+})
+
+router.post('/comments/:id', (req, res) => {
+  db.Post.findOne({
+    _id: req.params.id
+  }).populate('comments', { comment: req.body })
 })
 
 module.exports = router;
