@@ -37,7 +37,7 @@ function App(props) {
 
   const loginAttempt = async (email, password) => {
     const result = await (
-      await fetch("http://localhost:5000/login", {
+      await fetch("http://localhost:3000/login", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -92,6 +92,7 @@ function App(props) {
       ).json();
       if (user._id) {
         setUser(user);
+        console.log("user app 95 : " + user);
       }
 
       // setLoading(false);
@@ -134,7 +135,6 @@ function App(props) {
         <Route exact path="/newPost" component={NewPost}></Route>
         <Route exact path="/post" component={Post}></Route>
         <Route path="/detail/:id" component={Detail}></Route>
-        
       </Switch>
       <Footer />
     </div>
