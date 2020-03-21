@@ -64,6 +64,7 @@ function AllPostings(props) {
                                                 }
                                             }
                                         ></input>
+
                                         <div className="form-group">
                                             <label>
                                                 Add Comment:
