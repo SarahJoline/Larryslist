@@ -5,6 +5,23 @@ import Axios from "axios";
 
 function AllPostings(props) {
   const [posts, setposts] = useState({ posts: [] });
+  const [comment, setComment] = useState({
+    comments: [],
+    id: ""
+  });
+
+  const SubmitValue = event => {
+    event.preventDefault();
+    //console.log(comment);
+    const id = comment.id;
+    const userComment = comment.comments;
+    //console.log(userComment)
+    //console.log(id);
+    Axios.patch(`/api/comments/${id}`, {
+      comments: userComment
+    }).then(newComment => console.log(newComment));
+    window.location.reload(true);
+  };
 
   useEffect(() => {
     API.getposts().then(res => {
@@ -55,18 +72,29 @@ function AllPostings(props) {
                         Add Comment: 🤬
                       </label>
                       <textarea
-                        placeholder="work in progress.."
                         className="form-control"
-                        id="exampleFormControlTextarea1"
+                        id={post._id}
                         rows="3"
+                        onChange={e =>
+                          setComment({
+                            comments: e.target.value,
+                            id: post._id
+                          })
+                        }
                       ></textarea>
                       <input
+                        id={post._id}
                         type="submit"
                         value="add comment"
                         className="btn btn-dark"
-                        onClick={() => {
-                          alert("You have commented!");
-                        }}
+                        onClick={SubmitValue}
+                      />
+                      <textarea
+                        className="form-control"
+                        id={post._id}
+                        rows="2"
+                        value={post.comments}
+                        placeholder="Your Comment.."
                       />
                     </div>
                   </div>
