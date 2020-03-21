@@ -1,27 +1,27 @@
-.post-container {
+.header-container{
+  display:flex;
+  justify-content: center;
+}
+.header{
+  display:flex;
+  background-color: rgb(240, 74, 45);
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+}
+.post-container{
+  display:flex;
+  justify-content: center;
+}
+.postingss {
   display: flex;
-  height: 100%;
-  justify-content: center;
-}
-
-.header {
-  color: #9d0404;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
-  display: block;
-}
-
-.postings {
-  display: block;
-  border: 1px solid #9d0404;
   width: 960px;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top:10px;
 }
-
-.post {
-  display: flex;
-  width: 200px;
-  border: 1px solid #9d0404;
-  margin: 10px;
+.render-post{
+  display:flex;
+  width: 300px;
   flex-wrap: wrap;
 }
