@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import API from "../../Components/Utility/API";
+import API from "../../Components/utility/API";
 
 function Favorite() {
   const [posts, setposts] = useState({ posts: [] });
