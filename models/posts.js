@@ -24,12 +24,15 @@ let PostSchema = new Schema({
     type: Boolean,
     default: false
   },
-  comments: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Comment"
-    }
-  ]
+  comments: {
+    type: String
+  },
+  // comments: [
+  //   {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: "Comment"
+  //   }
+  // ]
 });
 
 const Post = mongoose.model("Post", PostSchema);

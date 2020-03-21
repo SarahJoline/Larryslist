@@ -88,7 +88,23 @@ router.delete("/favorite/:id", (req, res) => {
 router.post('/comments/:id', (req, res) => {
   db.Post.findOne({
     _id: req.params.id
-  }).populate('comments', { comment: req.body })
+  }).populate('comments', { comments: req.body.comments })
+    .exec(function (err, completeComment) {
+      if (err) {
+        console.log(err)
+      }
+      res.send(completeComment)
+    })
 })
+
+router.patch('/comments/:id', (req, res) => {
+  db.Post.updateOne(
+    { _id: req.params.id }, req.body).then(res => {
+      res.send(res)
+    }).catch(err => {
+      res.send(err)
+    })
+})
+
 
 module.exports = router;
