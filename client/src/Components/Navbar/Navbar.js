@@ -34,115 +34,14 @@ function Navbar(props) {
   //     )}
   // )}
   console.log("navbar", props.user);
-<<<<<<< HEAD
-  return (
-    <div className="Wrapper">
-      <div
-        id="navbar"
-        className="navbar navbar-expand-lg navbar-light bg-light"
-      >
-        <div class="button">
-          <div class="bottom"></div>
-          <div class="top">
-            <Link to="/home" className="label">
-              Home
-            </Link>
-            <div class="button-border button-border-left"></div>
-            <div class="button-border button-border-top"></div>
-            <div class="button-border button-border-right"></div>
-            <div class="button-border button-border-bottom"></div>
-          </div>
-        </div>
-        <div class="button">
-          <div class="bottom"></div>
-          <div class="top">
-            <Link to="/favorite" className="label">
-              Favorite
-            </Link>
-            <div class="button-border button-border-left"></div>
-            <div class="button-border button-border-top"></div>
-            <div class="button-border button-border-right"></div>
-            <div class="button-border button-border-bottom"></div>
-          </div>
-        </div>
-=======
 
   return (
     <div className="Wrapper">
       <div className="navbar navbar-expand-lg navbar-light bg-light">
->>>>>>> da6ea1518f0ae632d1500b5a6b104e4a75bd8f16
         {props.user[0] ? (
           <>
             {props.user[0]._id ? (
               <>
-<<<<<<< HEAD
-                <div class="button">
-                  <div class="bottom"></div>
-                  <div class="top">
-                    <Link
-                      to="/"
-                      className="label"
-                      onClick={() => {
-                        logOutCallback();
-                      }}
-                    >
-                      {" "}
-                      log Out
-                    </Link>
-                    <div class="button-border button-border-left"></div>
-                    <div class="button-border button-border-top"></div>
-                    <div class="button-border button-border-right"></div>
-                    <div class="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-                <div class="button">
-                  <div class="bottom"></div>
-                  <div class="top">
-                    <Link to="/post" className="label">
-                      post item
-                    </Link>
-                    <div class="button-border button-border-left"></div>
-                    <div class="button-border button-border-top"></div>
-                    <div class="button-border button-border-right"></div>
-                    <div class="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <>
-                <div class="button">
-                  <div class="bottom"></div>
-                  <div class="top">
-                    {path == "/login" ? (
-                      ""
-                    ) : (
-                      <Link to="/" className="label">
-                        Login
-                      </Link>
-                    )}
-                    <div class="button-border button-border-left"></div>
-                    <div class="button-border button-border-top"></div>
-                    <div class="button-border button-border-right"></div>
-                    <div class="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-                <div class="button">
-                  <div class="bottom"></div>
-                  <div class="top">
-                    {path == "/signUp" ? (
-                      ""
-                    ) : (
-                      <Link to="/signUp" className="label">
-                        SignUp
-                      </Link>
-                    )}
-                    <div class="button-border button-border-left"></div>
-                    <div class="button-border button-border-top"></div>
-                    <div class="button-border button-border-right"></div>
-                    <div class="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-=======
                 <button>
                   <Link to="/home">Home</Link>
                 </button>
@@ -182,7 +81,6 @@ function Navbar(props) {
                     <Link to="/signUp">SignUp</Link>
                   </button>
                 )}
->>>>>>> da6ea1518f0ae632d1500b5a6b104e4a75bd8f16
               </>
             )}
           </>
