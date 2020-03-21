@@ -58,7 +58,8 @@ function Favorite(props) {
                   Axios.patch(`/api/favorite/${id}`, {
                     saved: false
                   }).then(res => console.log(res));
-                  window.location.reload(true);
+                  // window.location.reload(true);
+                  props.history.push("/allpostings");
                 }}
               ></input>
             </div>

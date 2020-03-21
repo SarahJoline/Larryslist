@@ -68,8 +68,8 @@ function App(props) {
     // Clear user from context
     setUser({});
     // Navigate back to startpage
-    // navigate("/");
     window.localStorage.setItem("token", "");
+    window.location.reload(true);
   };
 
   useEffect(() => {
