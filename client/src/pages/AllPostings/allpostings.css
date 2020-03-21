@@ -20,7 +20,14 @@
     flex-wrap: wrap;
     margin-top:10px;
 }
-
+.card-text{
+    display:flex;
+    flex-wrap: wrap;
+}
+.card-title{
+    display:flex;
+    flex-wrap:wrap;
+}
 .render-post{
     display:flex;
     width: 300px;

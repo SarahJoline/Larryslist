@@ -48,7 +48,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 connection.on("error", console.error.bind(console, "connection error:"));
-connection.once("open", function() {
+connection.once("open", function () {
   console.log("connected to db instance");
 });
 
@@ -163,8 +163,8 @@ app.post("/home", async (req, res) => {
     });
   }
 });
-app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 app.listen(PORT, () => {
   console.log(`listening at http://localhost:${PORT}`);
