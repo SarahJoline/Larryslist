@@ -18,9 +18,9 @@ import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import NewPost from "./Components/NewPost/NewPost";
 import SignUp from "./pages/signUp/signUp";
+import AllPostings from "./pages/AllPostings/AllPostings"
 import Post from "./pages/Post/Post";
 
-import "./App.css";
 
 // import Category from "./Components/Category/Category";
 import { navigate } from "@reach/router";
@@ -120,12 +120,12 @@ function App(props) {
         {/* <Route exact path="/" component={Home} /> */}
 
         <Route exact path="/home" component={Home} />
-
+        <Route exact path="/allpostings" component={AllPostings} />
         <Route
           exact
           path="/"
           render={() => <Login loginAttempt={loginAttempt} />}
-          />
+        />
         {/* <Favorite path="/Favorite" /> */}
         <Route exact path="/Favorite" component={Favorite}></Route>
         <Route exact path="/signUp" component={SignUp}></Route>
@@ -134,9 +134,9 @@ function App(props) {
         <Route exact path="/newPost" component={NewPost}></Route>
         <Route exact path="/post" component={Post}></Route>
         <Route path="/detail/:id" component={Detail}></Route>
-        
+
       </Switch>
-          {/* <Carousel/> */}
+      {/* <Carousel/> */}
       <Footer />
     </div>
   );

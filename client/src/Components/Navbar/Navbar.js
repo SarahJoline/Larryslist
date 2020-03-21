@@ -45,6 +45,10 @@ console.log("navbar",props.user);
         </button>
 
         <button>
+          <Link to="/allpostings">All Postings</Link>
+        </button>
+
+        <button>
           <Link to="/favorite">Favorite</Link>
         </button>
         {props.user[0]? 
@@ -68,13 +72,14 @@ console.log("navbar",props.user);
         {path == "/login" ? (
           ""
         ) : (
-          <button>
-            <Link to="/">Login</Link>
-          </button>
-        )}
+            <button>
+              <Link to="/">Login</Link>
+            </button>
+          )}
         {path == "/signUp" ? (
           ""
         ) : (
+
           <button>
             <Link to="/signUp">SignUp</Link>
           </button>
@@ -83,6 +88,7 @@ console.log("navbar",props.user);
         )
         }</>:<></>
         }
+
       </div>
     </div>
   );

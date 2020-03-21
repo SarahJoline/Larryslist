@@ -66,7 +66,7 @@ const SignUp = props => {
               type="password"
               name="password"
               autoComplete="current-password"
-              // placeholder="Password"
+            // placeholder="Password"
             />
           </div>
           <div>
