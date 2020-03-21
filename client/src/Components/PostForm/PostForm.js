@@ -20,23 +20,25 @@ function PostForm(props) {
   };
 
   return (
-    <form className="test" onSubmit={handleSubmit(onSubmit)}>
-      <label> Posting Title:</label>
-      <input name="title" ref={register} />
-      <label>Posting Description:</label>
-      <input className="description" name="description" ref={register} />
-      <label>Posting Category:</label>
-      <select name="category" ref={register}>
-        <option value="">Select One</option>
-        <option value="cars">Cars</option>
-        <option value="jobs">Jobs</option>
-        <option value="pets">Pets</option>
-        <option value="housing">Housing</option>
-        <option value="connect">Missied Connections</option>
-      </select>
-      <br />
-      <input type="submit" />
-    </form>
+    <div className="form-parent">
+      <form className="test" onSubmit={handleSubmit(onSubmit)}>
+        <label> Posting Title:</label>
+        <input className="post-inputs" name="title" ref={register} />
+        <label>Posting Description:</label>
+        <input className="description" name="description" ref={register} />
+        <label>Posting Category:</label>
+        <select className="select-category" name="category" ref={register}>
+          <option value="">Select One</option>
+          <option value="cars">Cars</option>
+          <option value="jobs">Jobs</option>
+          <option value="pets">Pets</option>
+          <option value="housing">Housing</option>
+          <option value="connect">Missied Connections</option>
+        </select>
+        <br />
+        <input className="submit-button" type="submit" />
+      </form>
+    </div>
   );
 }
 
