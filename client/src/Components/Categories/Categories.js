@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import { Button } from "reactstrap";
-import Test from "../Test/Test";
+
 import API from "../utility/API";
 
 function Categories() {
@@ -26,7 +26,6 @@ function Categories() {
         })}
       </div>
 
-      <Test />
       {/* <Button color="danger">Cars</Button>
       <Button color="danger">Jobs</Button>
       <Button color="danger">Pets</Button>

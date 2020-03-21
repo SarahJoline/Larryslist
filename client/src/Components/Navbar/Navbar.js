@@ -18,6 +18,25 @@ function Navbar(props) {
     navigate("/");
     window.localStorage.setItem("token", "");
   };
+  // const returnJSX=()=>{
+  //   return(
+  //     {path == "/login" ? (
+  //       ""
+  //     ) : (
+  //       <button>
+  //         <Link to="/">Login</Link>
+  //       </button>
+  //     )}
+  //     {path == "/signUp" ? (
+  //       ""
+  //     ) : (
+  //       <button>
+  //         <Link to="/signUp">SignUp</Link>
+  //       </button>
+  //     )}
+  // )}
+console.log("navbar",props.user);
+
   return (
     <div className="Wrapper">
       <div className="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,22 +45,16 @@ function Navbar(props) {
         </button>
 
         <button>
+          <Link to="/allpostings">All Postings</Link>
+        </button>
+
+        <button>
           <Link to="/favorite">Favorite</Link>
         </button>
-        {path == "/login" ? (
-          ""
-        ) : (
-          <button>
-            <Link to="/">Login</Link>
-          </button>
-        )}
-        {path == "/signUp" ? (
-          ""
-        ) : (
-          <button>
-            <Link to="/signUp">SignUp</Link>
-          </button>
-        )}
+        {props.user[0]? 
+        <>
+        { props.user[0]._id ?
+        (<>
         <button
           onClick={() => {
             logOutCallback();
@@ -49,6 +62,33 @@ function Navbar(props) {
         >
           <Link to="/"> log Out</Link>
         </button>
+        <button
+        >
+          <Link to="/post">post item</Link>
+        </button>
+        </>
+        ) : (
+        <>
+        {path == "/login" ? (
+          ""
+        ) : (
+            <button>
+              <Link to="/">Login</Link>
+            </button>
+          )}
+        {path == "/signUp" ? (
+          ""
+        ) : (
+
+          <button>
+            <Link to="/signUp">SignUp</Link>
+          </button>
+        )}
+        </>
+        )
+        }</>:<></>
+        }
+
       </div>
     </div>
   );

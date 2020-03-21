@@ -18,9 +18,8 @@ import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import NewPost from "./Components/NewPost/NewPost";
 import SignUp from "./pages/signUp/signUp";
+import AllPostings from "./pages/AllPostings/AllPostings";
 import Post from "./pages/Post/Post";
-
-import "./App.css";
 
 // import Category from "./Components/Category/Category";
 import { navigate } from "@reach/router";
@@ -31,13 +30,13 @@ export const UserContext = React.createContext([]);
 // import Category from"./Components/Category/Category"
 
 function App(props) {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([{}]);
   const [loading, setLoading] = useState(true);
   console.log("App props: " + props);
 
   const loginAttempt = async (email, password) => {
     const result = await (
-      await fetch("http://localhost:3000/login", {
+      await fetch("/login", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -66,7 +65,7 @@ function App(props) {
   };
 
   const logOutCallback = async () => {
-    await fetch("http://localhost:5000/logout", {
+    await fetch("/logout", {
       method: "POST",
       credentials: "include" // Needed to include the cookie
     });
@@ -82,7 +81,7 @@ function App(props) {
     const savedToken = window.localStorage.getItem("token");
     async function refreshToken() {
       const user = await (
-        await fetch("http://localhost:5000/refresh_token", {
+        await fetch("/refresh_token", {
           method: "POST",
           credentials: "include", // Needed to include the cookie
           headers: {
@@ -98,9 +97,9 @@ function App(props) {
       // setLoading(false);
     }
     refreshToken();
-  }, []);
+  }, []); // our app is one step behind,user is not being update as we refresh
 
-  console.log("User: " + user);
+  console.log("User: " + JSON.stringify(user));
 
   let userToken = window.localStorage.getItem("token");
   console.log("userToken: " + userToken);
@@ -116,17 +115,17 @@ function App(props) {
 
   return (
     <div>
-      <Header />
+      <Header user={user} />
       <Switch>
         {/* <Route exact path="/" component={Home} /> */}
 
         <Route exact path="/home" component={Home} />
-
+        <Route exact path="/allpostings" component={AllPostings} />
         <Route
           exact
           path="/"
           render={() => <Login loginAttempt={loginAttempt} />}
-          />
+        />
         {/* <Favorite path="/Favorite" /> */}
         <Route exact path="/Favorite" component={Favorite}></Route>
         <Route exact path="/signUp" component={SignUp}></Route>
@@ -136,7 +135,7 @@ function App(props) {
         <Route exact path="/post" component={Post}></Route>
         <Route path="/detail/:id" component={Detail}></Route>
       </Switch>
-          {/* <Carousel/> */}
+      {/* <Carousel/> */}
       <Footer />
     </div>
   );

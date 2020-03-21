@@ -21,8 +21,8 @@ let PostSchema = new Schema({
   },
   //should Post's have an author reference
   saved: {
-    type: Boolean
-    //default: false
+    type: Boolean,
+    default: false
   },
   comments: [
     {

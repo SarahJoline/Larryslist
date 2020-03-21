@@ -1,9 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import './form.css'
+import './postform.css'
 import axios from 'axios'
 
-function Test() {
+function PostForm() {
     const { register, handleSubmit } = useForm()
     //const onSubmit = data => console.log(data);
 
@@ -42,4 +42,4 @@ function Test() {
     )
 }
 
-export default Test
+export default PostForm
