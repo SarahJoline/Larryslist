@@ -13,15 +13,19 @@ import Favorite from "./pages/Favorite/Favorite";
 import Home from "./pages/Home/Home";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
-import Login from "./Components/Login/login";
+import Login from "./Components/Login/login.js";
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import NewPost from "./Components/NewPost/NewPost";
 import SignUp from "./pages/signUp/signUp";
 import AllPostings from "./pages/AllPostings/AllPostings"
-import "./App.css";
+import Post from "./pages/Post/Post";
+
 
 // import Category from "./Components/Category/Category";
+import { navigate } from "@reach/router";
+import Categories from "./Components/Categories/Categories";
+import Detail from "./pages/Detail/Detail";
 
 export const UserContext = React.createContext([]);
 // import Category from"./Components/Category/Category"
@@ -125,9 +129,14 @@ function App(props) {
         {/* <Favorite path="/Favorite" /> */}
         <Route exact path="/Favorite" component={Favorite}></Route>
         <Route exact path="/signUp" component={SignUp}></Route>
+        <Route exact path="/cats" component={Categories}></Route>
 
         <Route exact path="/newPost" component={NewPost}></Route>
+        <Route exact path="/post" component={Post}></Route>
+        <Route path="/detail/:id" component={Detail}></Route>
+
       </Switch>
+      {/* <Carousel/> */}
       <Footer />
     </div>
   );

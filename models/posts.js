@@ -19,6 +19,7 @@ let PostSchema = new Schema({
   image: {
     type: String
   },
+  //should Post's have an author reference
   saved: {
     type: Boolean,
     default: false

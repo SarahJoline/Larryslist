@@ -3,20 +3,16 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 let CommentSchema = new Schema({
-  // body: {
-  //   type: String,
-  //   required: true
-  // },
-  userId: {
+  text: {
+    type: String,
+    required: true
+  },
+  userId: {// NEED auth to implement
     type: String
     // required: true
   },
-  post: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Post"
-    }
-  ]
+  post: Schema.Types.ObjectId,
+
 });
 
 const Comment = mongoose.model("Comment", CommentSchema);

@@ -5,8 +5,9 @@ import Autocomplete from "../../Components/Autocomplete/Autocomplete";
 import Categories from "../../Components/Categories/Categories";
 import Display from "../../Components/Display/Display";
 import PostForm from "../../Components/PostForm/PostForm"
+// import { Carousel } from "react-responsive-carousel";
 
-const categories = ["cat1", "cat2", "cat3", "cat4", "miki"];
+const categories = ["Car", "Pet", "Jobs", "Housing"];
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -58,6 +59,7 @@ class Home extends Component {
       // <p>Home</p>
       <div>
         <PostForm />
+        {/* <Carousel/> */}
         <SearchForm onInput={this.addNewResult} />
         <Autocomplete data={this.state.data} />
         {/* <Categories /> */}

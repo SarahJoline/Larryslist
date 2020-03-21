@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import API from "../../Components/utility/API"
+import API from "../../Components/Utility/API"
 import './allpostings.css'
 import Axios from "axios"
 
