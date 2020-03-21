@@ -1,8 +1,6 @@
 import { navigate } from "@reach/router";
 import React, { Component, useState } from "react";
 
-import API from "../Utility/API";
-
 const NewPost = () => {
   const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");

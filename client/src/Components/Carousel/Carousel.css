@@ -1,6 +1,6 @@
-Carousel{
-    display: flex;
-    justify-content: center;
-    height: 350px;
-    width: 250px;
+.carouselImg {
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  width: 100%;
 }

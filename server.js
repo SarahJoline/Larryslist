@@ -39,8 +39,12 @@ mongoose.connect(MONGO_URI, {
   useFindAndModify: false
 });
 
-if (process.env.MONGODB_URI === "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 }
 
 connection.on("error", console.error.bind(console, "connection error:"));
@@ -168,10 +172,10 @@ app.listen(PORT, () => {
 
 //COMMENTS
 //steps per feature
-    //make routes (CRUD)
-    //update react API for those
-    //use the api Detail.js
+//make routes (CRUD)
+//update react API for those
+//use the api Detail.js
 //features
-    //post comments from form
-    //get comments in  useEffect
-    //ICEBOX: flag
+//post comments from form
+//get comments in  useEffect
+//ICEBOX: flag

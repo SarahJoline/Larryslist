@@ -21,17 +21,21 @@ class SearchForm extends Component {
   }
   render() {
     return (
-      <form>
-        <input
-          style={{ margin: "10px 0px", width: "75%" }}
-          value={this.state.querySearch}
-          onChange={this.handleSearch}
-          type="text"
-          placeholder="Search here"
-          required
-        />
-        <i className="fa fa-search" aria-hidden="true"></i>
-      </form>
+      <div>
+        <form>
+          <input
+            style={{ margin: "10px 0px", width: "75%" }}
+            value={this.state.querySearch}
+            onChange={this.handleSearch}
+            type="text"
+            placeholder="Search here"
+            required
+          />
+          <i className="fa fa-search" aria-hidden="true"></i>
+
+          <button className="btn btn-outline-success ml-2"> Enter </button>
+        </form>
+      </div>
     );
   }
 }
