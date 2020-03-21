@@ -4,7 +4,7 @@ const { verify } = require("jsonwebtoken");
 
 const isAuth = (req, res, next) => {
   const authorization = req.headers["authorization"];
-  if (!authorization) throw new Error("You need to login.");
+  //if (!authorization) throw new Error("You need to login.");//TODO make work with heroku
 
   const token = authorization.split(" ")[1];
   verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {

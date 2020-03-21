@@ -13,7 +13,7 @@ import Favorite from "./pages/Favorite/Favorite";
 import Home from "./pages/Home/Home";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
-import Login from "./Components/Login/login";
+import Login from "./Components/Login/login.js";
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import NewPost from "./Components/NewPost/NewPost";
@@ -126,7 +126,7 @@ function App(props) {
           exact
           path="/"
           render={() => <Login loginAttempt={loginAttempt} />}
-        />
+          />
         {/* <Favorite path="/Favorite" /> */}
         <Route exact path="/Favorite" component={Favorite}></Route>
         <Route exact path="/signUp" component={SignUp}></Route>
@@ -136,6 +136,7 @@ function App(props) {
         <Route exact path="/post" component={Post}></Route>
         <Route path="/detail/:id" component={Detail}></Route>
       </Switch>
+          {/* <Carousel/> */}
       <Footer />
     </div>
   );
