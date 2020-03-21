@@ -38,7 +38,7 @@ class Home extends Component {
       ]
     };
     this.normalizeData = rawData => {
-      return rawData.map(function(title, index) {
+      return rawData.map(function (title, index) {
         return {
           title: title,
           image: "k" //rawData[index],

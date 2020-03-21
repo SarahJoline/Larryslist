@@ -26,7 +26,7 @@ let PostSchema = new Schema({
   },
   comments: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Comment"
     }
   ]
