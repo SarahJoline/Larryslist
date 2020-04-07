@@ -18,16 +18,19 @@ function Navbar(props) {
   };
 
   console.log("navbar", props.user);
+
   return (
     <div className="Wrapper">
       <div
         id="navbar"
         className="navbar navbar-expand-lg navbar-light bg-light"
       >
+
         {props.user[0] ? (
           <>
             {props.user[0]._id ? (
               <>
+
                 <div className="button">
                   <div className="bottom"></div>
                   <div className="top">
@@ -131,10 +134,11 @@ function Navbar(props) {
                 </div>
               </>
             )}
+
           </>
         ) : (
-          <></>
-        )}
+            <></>
+          )}
       </div>
     </div>
   );

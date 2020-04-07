@@ -98,6 +98,7 @@ function AllPostings(props) {
                       />
                     </div>
                   </div>
+
                 </div>
               </div>
             );
