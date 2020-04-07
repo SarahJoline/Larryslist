@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import { navigate } from "@reach/router";
+
 function Navbar(props) {
   let path = useLocation().pathname;
   console.log("path", path);
@@ -12,77 +12,129 @@ function Navbar(props) {
     });
     // Clear user from context
     // setUser({});
-    // Navigate back to startpage
-    navigate("/");
     window.localStorage.setItem("token", "");
+    window.location.reload(true);
+    props.history.push("/");
   };
-  // const returnJSX=()=>{
-  //   return(
-  //     {path == "/login" ? (
-  //       ""
-  //     ) : (
-  //       <button>
-  //         <Link to="/">Login</Link>
-  //       </button>
-  //     )}
-  //     {path == "/signUp" ? (
-  //       ""
-  //     ) : (
-  //       <button>
-  //         <Link to="/signUp">SignUp</Link>
-  //       </button>
-  //     )}
-  // )}
+
   console.log("navbar", props.user);
 
   return (
     <div className="Wrapper">
-      <div className="navbar navbar-expand-lg navbar-light bg-light">
+      <div
+        id="navbar"
+        className="navbar navbar-expand-lg navbar-light bg-light"
+      >
+
         {props.user[0] ? (
           <>
             {props.user[0]._id ? (
               <>
-                <button>
-                  <Link to="/home">Home</Link>
-                </button>
 
-                <button>
-                  <Link to="/allpostings">All Postings</Link>
-                </button>
-
-                <button>
-                  <Link to="/favorite">Favorite</Link>
-                </button>
-
-                <button
-                  onClick={() => {
-                    logOutCallback();
-                  }}
-                >
-                  <Link to="/"> log Out</Link>
-                </button>
-                <button>
-                  <Link to="/post">post item</Link>
-                </button>
+                <div className="button">
+                  <div className="bottom"></div>
+                  <div className="top">
+                    <Link to="/home" className="labelNav">
+                      Home
+                    </Link>
+                    <div className="button-border button-border-left"></div>
+                    <div className="button-border button-border-top"></div>
+                    <div className="button-border button-border-right"></div>
+                    <div className="button-border button-border-bottom"></div>
+                  </div>
+                </div>
+                <div className="button">
+                  <div className="bottom"></div>
+                  <div className="top">
+                    <Link to="/allpostings" className="labelNav">
+                      All Postings
+                    </Link>
+                    <div className="button-border button-border-left"></div>
+                    <div className="button-border button-border-top"></div>
+                    <div className="button-border button-border-right"></div>
+                    <div className="button-border button-border-bottom"></div>
+                  </div>
+                </div>
+                <div className="button">
+                  <div className="bottom"></div>
+                  <div className="top">
+                    <Link to="/favorite" className="labelNav">
+                      Favorite
+                    </Link>
+                    <div className="button-border button-border-left"></div>
+                    <div className="button-border button-border-top"></div>
+                    <div className="button-border button-border-right"></div>
+                    <div className="button-border button-border-bottom"></div>
+                  </div>
+                </div>
+                <div className="button">
+                  <div className="bottom"></div>
+                  <div className="top">
+                    <Link
+                      to="/"
+                      className="labelNav"
+                      onClick={() => {
+                        logOutCallback();
+                      }}
+                    >
+                      log Out
+                    </Link>
+                    <div className="button-border button-border-left"></div>
+                    <div className="button-border button-border-top"></div>
+                    <div className="button-border button-border-right"></div>
+                    <div className="button-border button-border-bottom"></div>
+                  </div>
+                </div>
+                <div className="button">
+                  <div className="bottom"></div>
+                  <div className="top">
+                    <Link to="/post" className="labelNav">
+                      post item
+                    </Link>
+                    <div className="button-border button-border-left"></div>
+                    <div className="button-border button-border-top"></div>
+                    <div className="button-border button-border-right"></div>
+                    <div className="button-border button-border-bottom"></div>
+                  </div>
+                </div>
               </>
             ) : (
-                <>
-                  {path == "/login" ? (
-                    ""
-                  ) : (
-                      <button>
-                        <Link to="/">Login</Link>
-                      </button>
+              <>
+                <div className="button">
+                  <div className="bottom"></div>
+                  <div className="top">
+                    {path == "/login" ? (
+                      ""
+                    ) : (
+                      <Link to="/" className="labelNav">
+                        Login
+                      </Link>
                     )}
-                  {path == "/signUp" ? (
-                    ""
-                  ) : (
-                      <button>
-                        <Link to="/signUp">SignUp</Link>
-                      </button>
+                    <div className="button-border button-border-left"></div>
+                    <div className="button-border button-border-top"></div>
+                    <div className="button-border button-border-right"></div>
+                    <div className="button-border button-border-bottom"></div>
+                  </div>
+                </div>
+                <div className="button">
+                  <div className="bottom"></div>
+                  <div className="top">
+                    {path == "/signUp" ? (
+                      ""
+                    ) : (
+                      <Link to="/signUp" className="labelNav">
+                        SignUp
+                      </Link>
                     )}
-                </>
-              )}
+                    <div className="button-border button-border-left"></div>
+                    <div className="button-border button-border-top"></div>
+                    <div className="button-border button-border-right"></div>
+                    <div className="button-border button-border-bottom"></div>
+                  </div>
+                </div>
+              </>
+            )}
+
           </>
         ) : (
             <></>
