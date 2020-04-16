@@ -1,146 +1,164 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, withRouter } from "react-router-dom";
+
+import { AuthContext } from "../../Context/AuthContext";
+import AuthService from "../../Service/AuthService";
+
 import "./Navbar.css";
 
-function Navbar(props) {
-  let path = useLocation().pathname;
-  console.log("path", path);
-  const logOutCallback = async () => {
-    await fetch("http://localhost:5000/logout", {
-      method: "POST",
-      credentials: "include" // Needed to include the cookie
+const Navbar = (props) => {
+  const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(
+    AuthContext
+  );
+
+  const onClickLogoutHandler = () => {
+    AuthService.logout().then((data) => {
+      console.log(data);
+      if (!data) {
+        setUser(data);
+        setIsAuthenticated(false);
+      }
+      props.history.push("/");
     });
-    // Clear user from context
-    // setUser({});
-    window.localStorage.setItem("token", "");
-    window.location.reload(true);
-    props.history.push("/");
   };
 
-  console.log("navbar", props.user);
+  const unauthenticatedNavBar = () => {
+    return (
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            {/* <div className="navbar1"> */}
+            <div className="button">
+              <div className="bottom"></div>
+              <div className="top">
+                <Link to="/" className="labelNav">
+                  Login
+                </Link>
+                <div className="button-border button-border-left"></div>
+                <div className="button-border button-border-top"></div>
+                <div className="button-border button-border-right"></div>
+                <div className="button-border button-border-bottom"></div>
+              </div>
+            </div>
+            <div className="button">
+              <div className="bottom"></div>
+              <div className="top">
+                <Link to="/register" className="labelNav">
+                  Register
+                </Link>
+                <div className="button-border button-border-left"></div>
+                <div className="button-border button-border-top"></div>
+                <div className="button-border button-border-right"></div>
+                <div className="button-border button-border-bottom"></div>
+              </div>
+            </div>
+            {/* </div> */}
+          </ul>
+        </div>
+      </nav>
+    );
+  };
 
-  return (
-    <div className="Wrapper">
-      <div
+  const authenticatedNavBar = () => {
+    return (
+      <nav
         id="navbar"
         className="navbar navbar-expand-lg navbar-light bg-light"
       >
-
-        {props.user[0] ? (
-          <>
-            {props.user[0]._id ? (
-              <>
-
-                <div className="button">
-                  <div className="bottom"></div>
-                  <div className="top">
-                    <Link to="/home" className="labelNav">
-                      Home
-                    </Link>
-                    <div className="button-border button-border-left"></div>
-                    <div className="button-border button-border-top"></div>
-                    <div className="button-border button-border-right"></div>
-                    <div className="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-                <div className="button">
-                  <div className="bottom"></div>
-                  <div className="top">
-                    <Link to="/allpostings" className="labelNav">
-                      All Postings
-                    </Link>
-                    <div className="button-border button-border-left"></div>
-                    <div className="button-border button-border-top"></div>
-                    <div className="button-border button-border-right"></div>
-                    <div className="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-                <div className="button">
-                  <div className="bottom"></div>
-                  <div className="top">
-                    <Link to="/favorite" className="labelNav">
-                      Favorite
-                    </Link>
-                    <div className="button-border button-border-left"></div>
-                    <div className="button-border button-border-top"></div>
-                    <div className="button-border button-border-right"></div>
-                    <div className="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-                <div className="button">
-                  <div className="bottom"></div>
-                  <div className="top">
-                    <Link
-                      to="/"
-                      className="labelNav"
-                      onClick={() => {
-                        logOutCallback();
-                      }}
-                    >
-                      log Out
-                    </Link>
-                    <div className="button-border button-border-left"></div>
-                    <div className="button-border button-border-top"></div>
-                    <div className="button-border button-border-right"></div>
-                    <div className="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-                <div className="button">
-                  <div className="bottom"></div>
-                  <div className="top">
-                    <Link to="/post" className="labelNav">
-                      post item
-                    </Link>
-                    <div className="button-border button-border-left"></div>
-                    <div className="button-border button-border-top"></div>
-                    <div className="button-border button-border-right"></div>
-                    <div className="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="button">
-                  <div className="bottom"></div>
-                  <div className="top">
-                    {path == "/login" ? (
-                      ""
-                    ) : (
-                      <Link to="/" className="labelNav">
-                        Login
-                      </Link>
-                    )}
-                    <div className="button-border button-border-left"></div>
-                    <div className="button-border button-border-top"></div>
-                    <div className="button-border button-border-right"></div>
-                    <div className="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-                <div className="button">
-                  <div className="bottom"></div>
-                  <div className="top">
-                    {path == "/signUp" ? (
-                      ""
-                    ) : (
-                      <Link to="/signUp" className="labelNav">
-                        SignUp
-                      </Link>
-                    )}
-                    <div className="button-border button-border-left"></div>
-                    <div className="button-border button-border-top"></div>
-                    <div className="button-border button-border-right"></div>
-                    <div className="button-border button-border-bottom"></div>
-                  </div>
-                </div>
-              </>
-            )}
-
-          </>
-        ) : (
-            <></>
-          )}
-      </div>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <div className="button">
+              <div className="bottom"></div>
+              <div className="top">
+                <Link to="/home" className="labelNav">
+                  Home
+                </Link>
+                <div className="button-border button-border-left"></div>
+                <div className="button-border button-border-top"></div>
+                <div className="button-border button-border-right"></div>
+                <div className="button-border button-border-bottom"></div>
+              </div>
+            </div>
+            <div className="button">
+              <div className="bottom"></div>
+              <div className="top">
+                <Link to="/allpostings" className="labelNav">
+                  All Postings
+                </Link>
+                <div className="button-border button-border-left"></div>
+                <div className="button-border button-border-top"></div>
+                <div className="button-border button-border-right"></div>
+                <div className="button-border button-border-bottom"></div>
+              </div>
+            </div>
+            <div className="button">
+              <div className="bottom"></div>
+              <div className="top">
+                <Link to="/favorite" className="labelNav">
+                  Favorite
+                </Link>
+                <div className="button-border button-border-left"></div>
+                <div className="button-border button-border-top"></div>
+                <div className="button-border button-border-right"></div>
+                <div className="button-border button-border-bottom"></div>
+              </div>
+            </div>
+            <div className="button">
+              <div className="bottom"></div>
+              <div className="top">
+                <Link to="/post" className="labelNav">
+                  post item
+                </Link>
+                <div className="button-border button-border-left"></div>
+                <div className="button-border button-border-top"></div>
+                <div className="button-border button-border-right"></div>
+                <div className="button-border button-border-bottom"></div>
+              </div>
+            </div>
+            <div className="button">
+              <div className="bottom"></div>
+              <div className="top">
+                <Link className="labelNav" onClick={onClickLogoutHandler}>
+                  Logout
+                </Link>
+                <div className="button-border button-border-left"></div>
+                <div className="button-border button-border-top"></div>
+                <div className="button-border button-border-right"></div>
+                <div className="button-border button-border-bottom"></div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    );
+  };
+  return (
+    <div className="Wrapper">
+      {!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}
     </div>
   );
-}
-export default Navbar;
+};
+
+export default withRouter(Navbar);
