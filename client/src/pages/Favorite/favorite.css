@@ -1,27 +1,43 @@
-.header-container{
-  display:flex;
-  justify-content: center;
+.post-container {
+  display: block;
 }
-.header{
-  display:flex;
+.header {
+  text-align: center;
+  display: block;
   background-color: rgb(240, 74, 45);
-  padding: 10px;
+  width: 90%;
+  margin-left: 5%;
   color: white;
   border-radius: 20px;
 }
-.post-container{
-  display:flex;
-  justify-content: center;
-}
-.postingss {
+
+.postings {
   display: flex;
-  width: 960px;
+  width: 90%;
+  margin-left: 5%;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top:10px;
+  margin-top: 10px;
 }
-.render-post{
-  display:flex;
-  width: 300px;
+
+.post {
+  flex: 1;
+  /* width: 330px; */
   flex-wrap: wrap;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+}
+
+.render-post {
+  display: flex;
+  min-width: 300px;
+  flex-wrap: wrap;
+}
+
+.btn-dark {
+  margin-bottom: 10px;
+  margin-top: 10px;
 }

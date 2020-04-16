@@ -1,13 +1,13 @@
-// import {Link} from "react-router-dom"
+// import { Component } from "react-router-dom"
 import React, { Component } from "react";
-import SearchForm from "../../Components/SearchForm/SearchForm";
+
 import Autocomplete from "../../Components/Autocomplete/Autocomplete";
+import Carousel from "../../Components/Carousel/Carousel";
 import Categories from "../../Components/Categories/Categories";
 import Display from "../../Components/Display/Display";
-
 import PostForm from "../../Components/PostForm/PostForm";
+import SearchForm from "../../Components/SearchForm/SearchForm";
 
-import Carousel from "../../Components/Carousel/Carousel";
 import "./Home.css";
 
 const categories = ["Car", "Pet", "Jobs", "Housing"];
@@ -21,32 +21,32 @@ class Home extends Component {
           title: "CAT!",
           description: "I like cats",
           category: "Pets",
-          image: "NOOOOOOOOOOOOOOOOOO"
+          image: "NOOOOOOOOOOOOOOOOOO",
         },
         {
           title: "DOG!",
           description: "I like dogs, kinda",
           category: "Cars",
-          image: "NOOOOOOOOOOOOOOOOOO"
+          image: "NOOOOOOOOOOOOOOOOOO",
         },
         {
           title: "CHICKENS!",
           description: "Colin LOVES chickens",
           category: "Missed Connections",
-          image: "It's a little weird"
-        }
-      ]
+          image: "It's a little weird",
+        },
+      ],
     };
-    this.normalizeData = rawData => {
+    this.normalizeData = (rawData) => {
       return rawData.map(function (title, index) {
         return {
           title: title,
-          image: "k" //rawData[index],
+          image: "k", //rawData[index],
         };
       });
     };
 
-    this.addNewResult = queryResult => {
+    this.addNewResult = (queryResult) => {
       if (queryResult === null) {
         this.setState({ data: [] });
         return;
