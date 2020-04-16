@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import "./Postform.css";
+import "./postform.css";
 
 // import user from "../Login/Login";
 

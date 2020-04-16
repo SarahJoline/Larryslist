@@ -1,19 +1,84 @@
-// Reserved for JWT user log in routes
-
 const express = require("express");
-const User = require("../models/users");
-const auth = require("../middleware/auth");
+const userRouter = express.Router();
+const passport = require("passport");
+const passportConfig = require("../passport/passport");
+const JWT = require("jsonwebtoken");
+const User = require("../models/User");
 
-const router = express.Router();
+const signToken = (userID) => {
+  return JWT.sign(
+    {
+      iss: "Project3",
+      sub: userID,
+    },
+    "project3",
+    { expiresIn: "1h" }
+  );
+};
 
-router.post("/users", async (req, res) => {
-  // to create a new user
-  try {
-    const user = new User(req.body);
-    await user.save();
-    const token = await user.generateAuthToken();
-    res.status(201).send({ user, token });
-  } catch (error) {
-    res.status(400).send(error);
-  }
+userRouter.post("/register", (req, res) => {
+  const { username, password, email } = req.body;
+  User.findOne({ username }, (err, user) => {
+    if (err)
+      res
+        .status(500)
+        .json({ message: { msgBody: "Error has occured", msgError: true } });
+    if (user)
+      res
+        .status(500)
+        .json({ message: { msgBody: "User already exist", msgError: true } });
+    else {
+      const newUser = new User({ username, password, email });
+      newUser.save((err) => {
+        if (err)
+          res.status(500).json({
+            message: { msgBody: "Email already exist", msgError: true },
+          });
+        else
+          res
+            .status(201)
+            .json({ message: { msgBody: "User Created", msgError: false } });
+      });
+    }
+  });
 });
+
+userRouter.post(
+  "/login",
+  passport.authenticate("local", { session: false }),
+  (req, res) => {
+    if (req.isAuthenticated()) {
+      const { _id, username } = req.user;
+      const token = signToken(_id);
+      res.cookie("access_token", token, { httpOnly: true, sameSite: true });
+      res.cookie("userID", _id, { httpOnly: true, sameSite: true });
+      res.status(200).json({ isAuthenticated: true, user: { username, _id } });
+    }
+  }
+);
+userRouter.get("/all", (req, res) => {
+  User.find().then((results) => {
+    res.json(results);
+  });
+});
+
+userRouter.get(
+  "/logout",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.clearCookie("access_token");
+    res.clearCookie("userID");
+    res.json({ user: { username: "", role: "" }, success: true });
+  }
+);
+
+userRouter.get(
+  "/authenticated",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { username } = req.user;
+    res.status(200).json({ isAuthenticated: true, user: { username } });
+  }
+);
+
+module.exports = userRouter;
