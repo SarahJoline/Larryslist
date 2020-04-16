@@ -1,21 +1,39 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import "./postform.css";
+import { AuthContext } from "../../Context/AuthContext";
+import AuthService from "../../Service/AuthService";
 import axios from "axios";
+import Cookies from "js-cookie";
+import React, { useContext, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+
+import "./Postform.css";
+
+// import user from "../Login/Login";
 
 function PostForm(props) {
   const { register, handleSubmit } = useForm();
   //const onSubmit = data => console.log(data);
+  const [user, setUser] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const onSubmit = data => {
-    console.log(data);
+  useEffect(() => {
+    AuthService.isAuthenticated().then((data) => {
+      setUser(data.user);
+      console.log(data.user);
+      setIsAuthenticated(data.isAuthenticated);
+      setIsLoaded(true);
+    });
+  }, []);
+
+  const onSubmit = (data) => {
     axios
       .post("/api/newpost", {
         category: data.category,
         title: data.title,
-        description: data.description
+        description: data.description,
+        userId: user.username,
       })
-      .then(response => console.log(response));
+      .then((response) => console.log(response));
     props.history.push("/allpostings");
   };
 
